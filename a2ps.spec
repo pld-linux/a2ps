@@ -4,7 +4,7 @@ Summary(pl):	Filtr text/plain do Postscriptu
 Summary(zh_CN): 纯文本到Postscript转换器
 Name:		a2ps
 Version:	4.13b
-Release:	22
+Release:	23
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
@@ -18,6 +18,7 @@ Patch4:		%{name}-conf.patch
 Patch5:		%{name}-glibcpaper.patch
 Patch6:		%{name}-autoenc.patch
 Patch7:		%{name}-i18n.patch
+Patch8:		%{name}-ogonkify-xfig-fix.patch
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
 BuildRequires:	flex
 Prereq:		/sbin/ldconfig
@@ -78,7 +79,7 @@ Biblioteki statyczne do a2ps.
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
-
+%patch8 -p0
 %build
 %configure2_13 \
 	--with-gnu-gettext \
