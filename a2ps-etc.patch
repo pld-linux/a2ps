@@ -1,0 +1,23 @@
+--- a2ps-4.13/etc/Makefile.in.etc	Wed Feb  9 09:32:55 2000
++++ a2ps-4.13/etc/Makefile.in	Thu Apr 27 22:45:03 2000
+@@ -297,7 +297,9 @@
+ 
+ # Building the correct a2ps.cfg
+ a2ps.cfg: a2ps_cfg Makefile
+-	sed "s!@libpath@!$(libpath)!" a2ps_cfg > a2ps.cfg
++	sed -e "s!@libpath@!$(libpath)!" \
++	    -e "s!@apppath@!$(PSFONT_PATH)!" \
++	    a2ps_cfg > a2ps.cfg
+ 
+ # Building a time stamp to know the version.
+ README: README.in Makefile
+--- a2ps-4.13/etc/a2ps_cfg.in.etc	Tue Feb  8 03:24:03 2000
++++ a2ps-4.13/etc/a2ps_cfg.in	Thu Apr 27 20:49:04 2000
+@@ -73,6 +73,7 @@
+ # It may be useful to extend it so that a2ps can see some
+ # TeX or X11 resources: it likes AFM files and PF[AB] files.
+ #AppendLibraryPath: foo
++AppendLibraryPath: @apppath@
+ 
+ 
+ #################################################################
