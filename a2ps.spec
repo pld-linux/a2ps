@@ -1,10 +1,11 @@
 Summary:     Text to Postscript filter.
-Summary(pl): Filtr text/plain do  Postscriptu
+Summary(pl): Filtr text/plain do Postscriptu
 Name:        a2ps
 Version:     4.10.4
 Release:     5
 Copyright:   GPL
 Group:       Utilities/Text
+Group(pl):   Narzêdzia/Tekst
 Vendor:      Akim Demaille 
 Source:      ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.bz2
 Patch0:      a2ps-info.patch
@@ -25,9 +26,9 @@ A2ps jest programem pozwalajaj±cym na ³adne drukowanie plików tekstowych w
 PostScript. Posiada wsparcie dla wielu ró¿nych jêzyków programowania, 
 zestawów znaków (ISO Latins, Cyrilica etc.), wielko¶ci papieru, i jêzyków 
 komunikacji z u¿ytkownikiem. Potrafi tak¿e przekazaæ przetwarzanie plików 
-do innych programów (tak, ¿e mo¿na wszystko drukowaæ (DVI, PostScript) przy 
-u¿yciu tego samego polecenia. Zawiera program ,,ogonkify'' poprawiaj±cy 
-b³êdnie zakodowany PostScript zawieraj±cy polskie znaki. 
+do innych programów (tak, ¿e mo¿na wszystko drukowaæ (DVI, PostScript))
+przy u¿yciu tego samego polecenia. Zawiera program ,,ogonkify''
+poprawiaj±cy b³êdnie zakodowany PostScript zawieraj±cy polskie znaki.
 
 %package devel
 Summary:     Header files and development documentation for a2ps
