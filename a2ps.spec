@@ -1,12 +1,12 @@
 Summary:	Text to Postscript filter.
 Summary(pl):	Filtr text/plain do  Postscriptu
 Name:		a2ps
-Version:	4.10.4
-Release:	6
+Version:	4.12
+Release:	1
 Copyright:	GPL
 Group:		Utilities/Text
 Group(pl):	Narzêdzia/Tekst
-Source:		ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.bz2
+Source:		ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
 Patch:		a2ps-info.patch
 Prereq:		/sbin/ldconfig
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
