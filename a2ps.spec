@@ -2,7 +2,7 @@ Summary:	Text to Postscript filter.
 Summary(pl):	Filtr text/plain do  Postscriptu
 Name:		a2ps
 Version:	4.12h
-Release:	1
+Release:	2
 License:	GPL
 Group:		Utilities/Text
 Group(pl):	Narzêdzia/Tekst
@@ -125,6 +125,8 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/ogonkify
 %{_datadir}/ogonkify/*.enc
 %{_datadir}/ogonkify/*.ps
+%{_datadir}/ogonkify/afm
+%{_datadir}/ogonkify/fonts
 
 %files devel
 %defattr(644,root,root,755)
