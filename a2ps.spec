@@ -23,6 +23,7 @@ Patch7:		%{name}-i18n.patch
 Patch8:		%{name}-ogonkify-xfig-fix.patch
 Patch9:		%{name}-pl.po-update.patch
 Patch10:	%{name}-locale-names.patch
+Patch11:	%{name}-malloc.patch
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
 BuildRequires:	automake
 BuildRequires:	flex
@@ -88,6 +89,7 @@ Biblioteki statyczne do a2ps.
 %patch8 -p0
 %patch9 -p1
 %patch10 -p1
+%patch11 -p1
 
 mv -f po/{no,nb}.po
 
