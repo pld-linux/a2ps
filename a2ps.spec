@@ -112,45 +112,45 @@ fi
 %{_infodir}/a2ps*info*
 %{_infodir}/ogonkify*info*
 
-%lang(ca) /usr/share/locale/ca/LC_MESSAGES/a2ps.mo
-%lang(cs) /usr/share/locale/cs/LC_MESSAGES/a2ps.mo
-%lang(da) /usr/share/locale/da/LC_MESSAGES/a2ps.mo
-%lang(de) /usr/share/locale/de/LC_MESSAGES/a2ps.mo
-%lang(es) /usr/share/locale/es/LC_MESSAGES/a2ps.mo
-%lang(fr) /usr/share/locale/fr/LC_MESSAGES/a2ps.mo
-%lang(it) /usr/share/locale/it/LC_MESSAGES/a2ps.mo
-%lang(ko) /usr/share/locale/ko/LC_MESSAGES/a2ps.mo
-%lang(nl) /usr/share/locale/nl/LC_MESSAGES/a2ps.mo
-%lang(pl) /usr/share/locale/pl/LC_MESSAGES/a2ps.mo
-%lang(pt) /usr/share/locale/pt/LC_MESSAGES/a2ps.mo
-%lang(ru) /usr/share/locale/ru/LC_MESSAGES/a2ps.mo
-%lang(sl) /usr/share/locale/sl/LC_MESSAGES/a2ps.mo
-%lang(sv) /usr/share/locale/sv/LC_MESSAGES/a2ps.mo
-%lang(tr) /usr/share/locale/tr/LC_MESSAGES/a2ps.mo
+%lang(ca) %{_datadir}/locale/ca/LC_MESSAGES/a2ps.mo
+%lang(cs) %{_datadir}/locale/cs/LC_MESSAGES/a2ps.mo
+%lang(da) %{_datadir}/locale/da/LC_MESSAGES/a2ps.mo
+%lang(de) %{_datadir}/locale/de/LC_MESSAGES/a2ps.mo
+%lang(es) %{_datadir}/locale/es/LC_MESSAGES/a2ps.mo
+%lang(fr) %{_datadir}/locale/fr/LC_MESSAGES/a2ps.mo
+%lang(it) %{_datadir}/locale/it/LC_MESSAGES/a2ps.mo
+%lang(ko) %{_datadir}/locale/ko/LC_MESSAGES/a2ps.mo
+%lang(nl) %{_datadir}/locale/nl/LC_MESSAGES/a2ps.mo
+%lang(pl) %{_datadir}/locale/pl/LC_MESSAGES/a2ps.mo
+%lang(pt) %{_datadir}/locale/pt/LC_MESSAGES/a2ps.mo
+%lang(ru) %{_datadir}/locale/ru/LC_MESSAGES/a2ps.mo
+%lang(sl) %{_datadir}/locale/sl/LC_MESSAGES/a2ps.mo
+%lang(sv) %{_datadir}/locale/sv/LC_MESSAGES/a2ps.mo
+%lang(tr) %{_datadir}/locale/tr/LC_MESSAGES/a2ps.mo
 
-%dir /usr/share/a2ps/afm
-/usr/share/a2ps/afm/*.afm
-/usr/share/a2ps/afm/*.map
-%attr(755,root,root) /usr/share/a2ps/afm/*.sh
+%dir %{_datadir}/a2ps/afm
+%{_datadir}/a2ps/afm/*.afm
+%{_datadir}/a2ps/afm/*.map
+%attr(755,root,root) %{_datadir}/a2ps/afm/*.sh
 
-%dir /usr/share/a2ps/encoding
-/usr/share/a2ps/encoding/*
+%dir %{_datadir}/a2ps/encoding
+%{_datadir}/a2ps/encoding/*
 
-%dir /usr/share/a2ps/fonts
-/usr/share/a2ps/fonts/*
+%dir %{_datadir}/a2ps/fonts
+%{_datadir}/a2ps/fonts/*
 
-%dir /usr/share/a2ps/ogonkify
-/usr/share/a2ps/ogonkify/*.enc
-/usr/share/a2ps/ogonkify/*.ps
+%dir %{_datadir}/a2ps/ogonkify
+%{_datadir}/a2ps/ogonkify/*.enc
+%{_datadir}/a2ps/ogonkify/*.ps
 
-%dir /usr/share/a2ps/ppd
-/usr/share/a2ps/ppd/*.ppd
+%dir %{_datadir}/a2ps/ppd
+%{_datadir}/a2ps/ppd/*.ppd
 
-%dir /usr/share/a2ps/ps
-/usr/share/a2ps/ps/*
+%dir %{_datadir}/a2ps/ps
+%{_datadir}/a2ps/ps/*
 
-%dir /usr/share/a2ps/sheets
-/usr/share/a2ps/sheets/*
+%dir %{_datadir}/a2ps/sheets
+%{_datadir}/a2ps/sheets/*
 
 %files devel
 %defattr(644,root,root,755)
@@ -173,7 +173,7 @@ rm -rf $RPM_BUILD_ROOT
 - added missiong fonts.map ...
 - autoheader && autoconf before configure,
 - other 'extras' in %install section,
-- added %dir for /usr/share/a2ps/*,
+- added %dir for %{_datadir}/a2ps/*,
 - added Group(pl),
 - minor changes in %files *.
 
@@ -203,4 +203,4 @@ rm -rf $RPM_BUILD_ROOT
 - build against GNU libc-2.1.
 
 * Mon Aug 07 1998 Soos Peter <sp@osb.hu>
-- BuildRoot spec correction %dir /usr/share/a2ps
+- BuildRoot spec correction %dir %{_datadir}/a2ps
