@@ -1,6 +1,5 @@
-diff -ur a2ps-4.13.orig/lib/routines.c a2ps-4.13/lib/routines.c
---- a2ps-4.13.orig/lib/routines.c	Sat Oct 16 06:46:37 1999
-+++ a2ps-4.13/lib/routines.c	Fri Jan  5 12:51:20 2001
+--- a2ps-4.13/lib/routines.c~	1999-10-16 06:46:37.000000000 +0200
++++ a2ps-4.13/lib/routines.c	2003-08-21 09:58:57.361425544 +0200
 @@ -242,3 +242,50 @@
    /* Don't complain if you can't unlink.  Who cares of a tmp file? */
    unlink (filename);
@@ -52,16 +51,15 @@ diff -ur a2ps-4.13.orig/lib/routines.c a2ps-4.13/lib/routines.c
 +
 +	return filename;
 +}
-diff -ur a2ps-4.13.orig/lib/routines.h a2ps-4.13/lib/routines.h
---- a2ps-4.13.orig/lib/routines.h	Mon Oct 18 22:24:41 1999
-+++ a2ps-4.13/lib/routines.h	Fri Jan  5 12:37:53 2001
-@@ -255,7 +255,8 @@
+--- a2ps-4.13/lib/routines.h~	1999-10-18 22:24:41.000000000 +0200
++++ a2ps-4.13/lib/routines.h	2003-08-21 09:55:11.500761584 +0200
+@@ -255,7 +255,7 @@
  /* If _STR_ is not defined, give it a tempname in _TMPDIR_ */
  #define tempname_ensure(Str)				\
  do {							\
 -  (Str) = (Str) ? (Str) : tempnam (NULL, "a2_");	\
-+  (Str) = (Str) ? (Str) : safe_tempnam("a2_");	\
++  (Str) = (Str) ? (Str) : safe_tempnam("a2_");		\
  } while (0)
+-
 +char * safe_tempnam(const char *);
- 
  #endif
