@@ -81,7 +81,7 @@ perl -pe 's/^lispdir = $/lispdir = {prefix}\/lib/g' contrib/emacs/Makefile >tmp
 mv tmp contrib/emacs/Makefile
 make prefix=$RPM_BUILD_ROOT/usr sysconfdir=$RPM_BUILD_ROOT/etc install
 
-#chmod 755	$RPM_BUILD_ROOT/usr/lib/*.so.*
+#chmod 755	$RPM_BUILD_ROOT%{_libdir}/*.so.*
 gzip -9nf $RPM_BUILD_ROOT%{_infodir}/* \
 	$RPM_BUILD_ROOT%{_mandir}/man1/* \
 	AUTHORS ChangeLog NEWS README THANKS
@@ -107,7 +107,7 @@ fi
 %config(noreplace) %verify(not size mtime md5) /etc/a2ps.cfg
 
 %attr(755,root,root) /usr/bin/*
-%attr(755,root,root) /usr/lib/*.so.*
+%attr(755,root,root) %{_libdir}/*.so.*
 %{_mandir}/man1/*
 %{_infodir}/a2ps*info*
 %{_infodir}/ogonkify*info*
@@ -155,14 +155,14 @@ fi
 %files devel
 %defattr(644,root,root,755)
 
-%attr(755,root,root) /usr/lib/lib*.so
+%attr(755,root,root) %{_libdir}/lib*.so
 
 /usr/include/*
 
 %files static
 %defattr(644,root,root,755)
 
-/usr/lib/lib*.a
+%{_libdir}/lib*.a
 
 %clean
 rm -rf $RPM_BUILD_ROOT
