@@ -2,12 +2,13 @@ Summary:	Text to Postscript filter.
 Summary(pl):	Filtr text/plain do  Postscriptu
 Name:		a2ps
 Version:	4.12
-Release:	2
+Release:	3
 Copyright:	GPL
 Group:		Utilities/Text
 Group(pl):	Narzêdzia/Tekst
 Source:		ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
 Patch:		a2ps-info.patch
+Prereq:		/usr/sbin/fix-info-dir
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
 BuildRoot:	/tmp/%{name}-%{version}-root
 
@@ -85,17 +86,12 @@ gzip -9nf $RPM_BUILD_ROOT%{_infodir}/* \
 %find_lang %{name}
 
 %post
-/sbin/install-info %{_infodir}/a2ps.info.gz /etc/info-dir 
-/sbin/install-info %{_infodir}/ogonkify.info.gz /etc/info-dir 
+/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 /sbin/ldconfig
 
-%preun
-if [ "$1" = "0" ]; then
-	/sbin/install-info --delete %{_infodir}/a2ps.info.gz /etc/info-dir
-	/sbin/install-info --delete %{_infodir}/ogonkify.info.gz /etc/info-dir
-fi
-
-%postun -p /sbin/ldconfig
+%postun
+/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+/sbin/ldconfig
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
