@@ -22,6 +22,7 @@ URL:		http://www.inf.enst.fr/~demaille/a2ps/
 BuildRequires:	flex
 Prereq:		/sbin/ldconfig
 Requires:	psutils
+Requires:	nss_db
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/a2ps
