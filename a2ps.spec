@@ -2,7 +2,7 @@ Summary:	Text to Postscript filter
 Summary(pl):	Filtr text/plain do  Postscriptu
 Name:		a2ps
 Version:	4.13b
-Release:	17
+Release:	18
 License:	GPL
 Group:		Applications/Text
 Group(de):	Applikationen/Text
