@@ -12,6 +12,8 @@ Prereq:		/sbin/ldconfig
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
 BuildRoot:	/tmp/%{name}-%{version}-root
 
+%define		_sysconfdir	/etc
+
 %description
 a2ps is a text to PostScript filter with pretty-printing capabilities.
 It includes support for a wide number of programming languages,
@@ -61,27 +63,23 @@ Biblioteki statyczne do a2ps.
 %patch -p1
 
 %build
-autoheader
-autoconf
-CFLAGS=$RPM_OPT_FLAGS LDFLAGS=-s \
-./configure %{_target_platform} \
-	--with-included-gettext \
-	--prefix=/usr \
-	--sysconfdir=/etc \
+#autoheader
+#autoconf
+%configure \
+	--with-gnu-gettext \
 	--with-medium=A4  \
 	--with-encoding=latin1 \
-	--enable-shared
+	--disable-shared
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-perl -pe 's/^lispdir = $/lispdir = {prefix}\/lib/g' contrib/emacs/Makefile >tmp
+perl -pe 's/^lispdir = $/lispdir = \$(prefix)\/lib\/emacs\/site-lisp/g' contrib/emacs/Makefile >tmp
 
 mv tmp contrib/emacs/Makefile
-make prefix=$RPM_BUILD_ROOT/usr sysconfdir=$RPM_BUILD_ROOT/etc install
+make install DESTDIR=$RPM_BUILD_ROOT
 
-#chmod 755	$RPM_BUILD_ROOT%{_libdir}/*.so.*
 gzip -9nf $RPM_BUILD_ROOT%{_infodir}/* \
 	$RPM_BUILD_ROOT%{_mandir}/man1/* \
 	AUTHORS ChangeLog NEWS README THANKS
@@ -109,7 +107,7 @@ fi
 %config(noreplace) %verify(not size mtime md5) /etc/a2ps.cfg
 
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/*.so.*
+#%attr(755,root,root) %{_libdir}/*.so.*
 %{_mandir}/man1/*
 %{_infodir}/a2ps*info*
 %{_infodir}/ogonkify*info*
@@ -125,9 +123,9 @@ fi
 %dir %{_datadir}/a2ps/fonts
 %{_datadir}/a2ps/fonts/*
 
-%dir %{_datadir}/a2ps/ogonkify
-%{_datadir}/a2ps/ogonkify/*.enc
-%{_datadir}/a2ps/ogonkify/*.ps
+%dir %{_datadir}/ogonkify
+%{_datadir}/ogonkify/*.enc
+%{_datadir}/ogonkify/*.ps
 
 %dir %{_datadir}/a2ps/ppd
 %{_datadir}/a2ps/ppd/*.ppd
@@ -140,14 +138,11 @@ fi
 
 %files devel
 %defattr(644,root,root,755)
-
-%attr(755,root,root) %{_libdir}/lib*.so
-
+#%attr(755,root,root) %{_libdir}/lib*.so
 %{_includedir}/*
 
 %files static
 %defattr(644,root,root,755)
-
 %{_libdir}/lib*.a
 
 %clean
