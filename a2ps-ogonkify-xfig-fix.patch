@@ -1,0 +1,11 @@
+--- ogonkify/ogonkify.in.in	Sat Oct 13 04:44:05 2001
++++ ogonkify/ogonkify.in.in.mis	Mon Jun  3 23:37:23 2002
+@@ -238,7 +238,7 @@
+ while(<>) {
+   if($where==0) {
+     print;
+-    if(($doMosaic || $doMp) && /^%%EndComments/) {
++    if(($doMosaic || $doMp || $doXfig) && /^%%EndComments/) {
+       $_="%%BeginProlog\n";
+       print;
+     }
