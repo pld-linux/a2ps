@@ -86,6 +86,8 @@ gzip -9nf $RPM_BUILD_ROOT%{_infodir}/* \
 	$RPM_BUILD_ROOT%{_mandir}/man1/* \
 	AUTHORS ChangeLog NEWS README THANKS
 
+%find_lang %{name}
+
 %post
 /sbin/install-info %{_infodir}/a2ps.info.gz /etc/info-dir 
 /sbin/install-info %{_infodir}/ogonkify.info.gz /etc/info-dir 
@@ -100,7 +102,7 @@ fi
 %postun 
 /sbin/ldconfig
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc {AUTHORS,ChangeLog,NEWS,README,THANKS}.gz
 
@@ -111,22 +113,6 @@ fi
 %{_mandir}/man1/*
 %{_infodir}/a2ps*info*
 %{_infodir}/ogonkify*info*
-
-%lang(ca) %{_datadir}/locale/ca/LC_MESSAGES/a2ps.mo
-%lang(cs) %{_datadir}/locale/cs/LC_MESSAGES/a2ps.mo
-%lang(da) %{_datadir}/locale/da/LC_MESSAGES/a2ps.mo
-%lang(de) %{_datadir}/locale/de/LC_MESSAGES/a2ps.mo
-%lang(es) %{_datadir}/locale/es/LC_MESSAGES/a2ps.mo
-%lang(fr) %{_datadir}/locale/fr/LC_MESSAGES/a2ps.mo
-%lang(it) %{_datadir}/locale/it/LC_MESSAGES/a2ps.mo
-%lang(ko) %{_datadir}/locale/ko/LC_MESSAGES/a2ps.mo
-%lang(nl) %{_datadir}/locale/nl/LC_MESSAGES/a2ps.mo
-%lang(pl) %{_datadir}/locale/pl/LC_MESSAGES/a2ps.mo
-%lang(pt) %{_datadir}/locale/pt/LC_MESSAGES/a2ps.mo
-%lang(ru) %{_datadir}/locale/ru/LC_MESSAGES/a2ps.mo
-%lang(sl) %{_datadir}/locale/sl/LC_MESSAGES/a2ps.mo
-%lang(sv) %{_datadir}/locale/sv/LC_MESSAGES/a2ps.mo
-%lang(tr) %{_datadir}/locale/tr/LC_MESSAGES/a2ps.mo
 
 %dir %{_datadir}/a2ps/afm
 %{_datadir}/a2ps/afm/*.afm
