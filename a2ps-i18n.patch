@@ -1,0 +1,35 @@
+diff -urN a2ps-4.13.orig/lib/jobs.c a2ps-4.13/lib/jobs.c
+--- a2ps-4.13.orig/lib/jobs.c	Sat Jun 23 16:00:37 2001
++++ a2ps-4.13/lib/jobs.c	Sat Jun 23 16:45:39 2001
+@@ -139,6 +139,10 @@
+ #endif
+   setlocale (LC_CTYPE, "");
+   setlocale (LC_PAPER, "");
++  /* Make sure dot will be used to separate fractional part of numbers.
++   * In some other locales (polish, for example) comma is used, but this
++   * is violation of PostScript. */
++  setlocale(LC_NUMERIC, "C");	
+ 
+   bindtextdomain (PACKAGE, LOCALEDIR);
+   textdomain (PACKAGE);
+diff -urN a2ps-4.13.orig/lib/output.c a2ps-4.13/lib/output.c
+--- a2ps-4.13.orig/lib/output.c	Tue Aug 31 19:42:41 1999
++++ a2ps-4.13/lib/output.c	Sat Jun 23 16:45:11 2001
+@@ -619,9 +619,17 @@
+ {
+   /* Open the destination */
+   a2ps_open_output_stream (job);
++  
++  /* Make sure dot will be used to separate fractional part of numbers.
++   * In some other locales (polish, for example) comma is used, but this
++   * is violation of PostScript. */
++  setlocale(LC_NUMERIC, "C");	
+ 
+   /* Dump the PostScript and close */
+   output_dump (job->divertion, job->output_stream->fp);
++
++  /* Restore locale */
++  setlocale(LC_NUMERIC, "");
+ 
+   /* We have to close stdout to avoid hanging up of pipes */
+   /* Note: some day, I should learn about the signals, and be able
