@@ -29,6 +29,7 @@ URL:		http://www.inf.enst.fr/~demaille/a2ps/
 BuildRequires:	automake
 BuildRequires:	flex
 BuildRequires:	gettext-devel
+BuildRequires:	texinfo
 Requires(post,postun):	/sbin/ldconfig
 Requires:	psutils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
