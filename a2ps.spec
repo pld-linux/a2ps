@@ -112,6 +112,22 @@ fi
 /usr/info/a2ps*info*
 /usr/info/ogonkify*info*
 
+%lang(ca) /usr/share/locale/ca/LC_MESSAGES/a2ps.mo
+%lang(cs) /usr/share/locale/cs/LC_MESSAGES/a2ps.mo
+%lang(da) /usr/share/locale/da/LC_MESSAGES/a2ps.mo
+%lang(de) /usr/share/locale/de/LC_MESSAGES/a2ps.mo
+%lang(es) /usr/share/locale/es/LC_MESSAGES/a2ps.mo
+%lang(fr) /usr/share/locale/fr/LC_MESSAGES/a2ps.mo
+%lang(it) /usr/share/locale/it/LC_MESSAGES/a2ps.mo
+%lang(ko) /usr/share/locale/ko/LC_MESSAGES/a2ps.mo
+%lang(nl) /usr/share/locale/nl/LC_MESSAGES/a2ps.mo
+%lang(pl) /usr/share/locale/pl/LC_MESSAGES/a2ps.mo
+%lang(pt) /usr/share/locale/pt/LC_MESSAGES/a2ps.mo
+%lang(ru) /usr/share/locale/ru/LC_MESSAGES/a2ps.mo
+%lang(sl) /usr/share/locale/sl/LC_MESSAGES/a2ps.mo
+%lang(sv) /usr/share/locale/sv/LC_MESSAGES/a2ps.mo
+%lang(tr) /usr/share/locale/tr/LC_MESSAGES/a2ps.mo
+
 %dir /usr/share/a2ps/afm
 /usr/share/a2ps/afm/*.afm
 /usr/share/a2ps/afm/*.map
@@ -135,22 +151,6 @@ fi
 
 %dir /usr/share/a2ps/sheets
 /usr/share/a2ps/sheets/*
-
-%lang(ca) /usr/share/locale/ca/LC_MESSAGES/a2ps.mo
-%lang(cs) /usr/share/locale/cs/LC_MESSAGES/a2ps.mo
-%lang(da) /usr/share/locale/da/LC_MESSAGES/a2ps.mo
-%lang(de) /usr/share/locale/de/LC_MESSAGES/a2ps.mo
-%lang(es) /usr/share/locale/es/LC_MESSAGES/a2ps.mo
-%lang(fr) /usr/share/locale/fr/LC_MESSAGES/a2ps.mo
-%lang(it) /usr/share/locale/it/LC_MESSAGES/a2ps.mo
-%lang(ko) /usr/share/locale/ko/LC_MESSAGES/a2ps.mo
-%lang(nl) /usr/share/locale/nl/LC_MESSAGES/a2ps.mo
-%lang(pl) /usr/share/locale/pl/LC_MESSAGES/a2ps.mo
-%lang(pt) /usr/share/locale/pt/LC_MESSAGES/a2ps.mo
-%lang(ru) /usr/share/locale/ru/LC_MESSAGES/a2ps.mo
-%lang(sl) /usr/share/locale/sl/LC_MESSAGES/a2ps.mo
-%lang(sv) /usr/share/locale/sv/LC_MESSAGES/a2ps.mo
-%lang(tr) /usr/share/locale/tr/LC_MESSAGES/a2ps.mo
 
 %files devel
 %defattr(644,root,root,755)
