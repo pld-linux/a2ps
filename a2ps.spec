@@ -2,7 +2,7 @@ Summary:	Text to Postscript filter
 Summary(pl):	Filtr text/plain do  Postscriptu
 Name:		a2ps
 Version:	4.13b
-Release:	14
+Release:	15
 License:	GPL
 Group:		Applications/Text
 Group(de):	Applikationen/Text
@@ -17,6 +17,7 @@ Patch3:		%{name}-flex.patch
 Patch4:		%{name}-conf.patch
 Patch5:		%{name}-glibcpaper.patch
 Patch6:		%{name}-autoenc.patch
+Patch7:		%{name}-i18n.patch
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
 Prereq:		/sbin/ldconfig
 Requires:	psutils
@@ -83,6 +84,7 @@ Biblioteki statyczne do a2ps.
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
+%patch7 -p1
 
 %build
 %configure \
