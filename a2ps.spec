@@ -2,7 +2,7 @@ Summary:	Text to Postscript filter
 Summary(pl):	Filtr text/plain do Postscriptu
 Name:		a2ps
 Version:	4.13b
-Release:	18
+Release:	19
 License:	GPL
 Group:		Applications/Text
 Group(de):	Applikationen/Text
@@ -10,6 +10,7 @@ Group(fr):	Utilitaires/Texte
 Group(pl):	Aplikacje/Tekst
 Source0:	ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.enst.fr/pub/unix/a2ps/i18n-fonts-0.1.tar.gz
+Source2:	ogonkify.1.pl
 Patch0:		%{name}-info.patch
 #Patch1:		%{name}-security.patch
 Patch2:		%{name}-etc.patch
@@ -104,7 +105,8 @@ Biblioteki statyczne do a2ps.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/a2ps/{afm,fonts}
+install -d $RPM_BUILD_ROOT%{_datadir}/a2ps/{afm,fonts} \
+	$RPM_BUILD_ROOT%{_mandir}/pl/man1
 
 perl -pe 's/^lispdir = $/lispdir = \$(prefix)\/lib\/emacs\/site-lisp/g' contrib/emacs/Makefile >tmp
 
@@ -116,7 +118,7 @@ gzip -9nf AUTHORS ChangeLog NEWS README THANKS
 
 install i18n-fonts-0.1/afm/*.afm %{buildroot}%{_datadir}/a2ps/afm
 install i18n-fonts-0.1/fonts/*.pfb %{buildroot}%{_datadir}/a2ps/fonts
-
+install %{SOURCE2} $RPM_BUILD_ROOT%{_mandir}/pl/man1
 %find_lang %{name}
 
 %clean
@@ -141,6 +143,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_mandir}/man1/*
+%lang(pl) %{_mandir}/pl/man1/*
 %{_infodir}/a2ps*info*
 %{_infodir}/ogonkify*info*
 
