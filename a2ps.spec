@@ -2,7 +2,7 @@ Summary:	Text to Postscript filter
 Summary(pl):	Filtr text/plain do  Postscriptu
 Name:		a2ps
 Version:	4.13b
-Release:	15
+Release:	16
 License:	GPL
 Group:		Applications/Text
 Group(de):	Applikationen/Text
@@ -97,7 +97,7 @@ Biblioteki statyczne do a2ps.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/usr/share/a2ps/{afm,fonts}
+install -d $RPM_BUILD_ROOT%{_datadir}/a2ps/{afm,fonts}
 
 perl -pe 's/^lispdir = $/lispdir = \$(prefix)\/lib\/emacs\/site-lisp/g' contrib/emacs/Makefile >tmp
 
@@ -107,8 +107,8 @@ mv -f tmp contrib/emacs/Makefile
 
 gzip -9nf AUTHORS ChangeLog NEWS README THANKS
 
-install i18n-fonts-0.1/afm/*.afm %{buildroot}/usr/share/a2ps/afm
-install i18n-fonts-0.1/fonts/*.pfb %{buildroot}/usr/share/a2ps/fonts
+install i18n-fonts-0.1/afm/*.afm %{buildroot}%{_datadir}/a2ps/afm
+install i18n-fonts-0.1/fonts/*.pfb %{buildroot}%{_datadir}/a2ps/fonts
 
 %find_lang %{name}
 

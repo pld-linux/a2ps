@@ -38,7 +38,7 @@ diff -Nru a2ps-4.12h/ogonkify/doc/ogonkify.texi a2ps-4.12h.new/ogonkify/doc/ogon
 +@dircategory Printing Tools:
  @direntry
 -* ogonkify: (ogonkify).            Ogonkify
-+* ogonkify: (ogonkify).				Ogonkify
++* ogonkify: (ogonkify).			Ogonkify
  @end direntry
  
  @ifinfo
