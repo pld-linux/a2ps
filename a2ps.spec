@@ -8,7 +8,6 @@ Group:		Utilities/Text
 Group(pl):	Narzêdzia/Tekst
 Source:		ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
 Patch:		a2ps-info.patch
-Prereq:		/sbin/ldconfig
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
 BuildRoot:	/tmp/%{name}-%{version}-root
 
@@ -32,7 +31,7 @@ do innych programów (tak, ¿e mo¿na wszystko drukowaæ (DVI, PostScript) przy
 u¿yciu tego samego polecenia. Zawiera program ,,ogonkify'' poprawiaj±cy 
 b³êdnie zakodowany PostScript zawieraj±cy polskie znaki. 
 
-%package	devel
+%package devel
 Summary:	Header files and development documentation for a2ps
 Summary(pl):	Pliki nag³ówkowe i dokunentacja do a2ps
 Group:		Libraries
@@ -45,7 +44,7 @@ Header files and development documentation for a2ps.
 %description devel -l pl
 Pliki nag³ówkowe i dokumentacja do a2ps.
 
-%package	static
+%package static
 Summary:	a2ps static libraries
 Summary(pl):	Biblioteki statyczne do a2ps
 Group:		Libraries
@@ -63,8 +62,6 @@ Biblioteki statyczne do a2ps.
 %patch -p1
 
 %build
-#autoheader
-#autoconf
 %configure \
 	--with-gnu-gettext \
 	--with-medium=A4  \
@@ -92,13 +89,12 @@ gzip -9nf $RPM_BUILD_ROOT%{_infodir}/* \
 /sbin/ldconfig
 
 %preun
-if [ $1 = 0 ]; then
+if [ "$1" = "0" ]; then
 	/sbin/install-info --delete %{_infodir}/a2ps.info.gz /etc/info-dir
 	/sbin/install-info --delete %{_infodir}/ogonkify.info.gz /etc/info-dir
 fi
 
-%postun 
-/sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -117,24 +113,15 @@ fi
 %{_datadir}/a2ps/afm/*.map
 %attr(755,root,root) %{_datadir}/a2ps/afm/*.sh
 
-%dir %{_datadir}/a2ps/encoding
-%{_datadir}/a2ps/encoding/*
-
-%dir %{_datadir}/a2ps/fonts
-%{_datadir}/a2ps/fonts/*
+%{_datadir}/a2ps/encoding
+%{_datadir}/a2ps/fonts
+%{_datadir}/a2ps/ppd
+%{_datadir}/a2ps/ps
+%{_datadir}/a2ps/sheets
 
 %dir %{_datadir}/ogonkify
 %{_datadir}/ogonkify/*.enc
 %{_datadir}/ogonkify/*.ps
-
-%dir %{_datadir}/a2ps/ppd
-%{_datadir}/a2ps/ppd/*.ppd
-
-%dir %{_datadir}/a2ps/ps
-%{_datadir}/a2ps/ps/*
-
-%dir %{_datadir}/a2ps/sheets
-%{_datadir}/a2ps/sheets/*
 
 %files devel
 %defattr(644,root,root,755)
