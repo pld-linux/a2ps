@@ -19,6 +19,7 @@ Patch5:		%{name}-glibcpaper.patch
 Patch6:		%{name}-autoenc.patch
 Patch7:		%{name}-i18n.patch
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
+BuildRequires:	flex
 Prereq:		/sbin/ldconfig
 Requires:	psutils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
