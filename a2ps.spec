@@ -6,7 +6,7 @@ Release:	1
 License:	GPL
 Group:		Utilities/Text
 Group(pl):	Narzêdzia/Tekst
-Source:		ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tgz
+Source:		ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
 Patch0:		a2ps-info.patch
 Prereq:		/usr/sbin/fix-info-dir
 Prereq:		/sbin/ldconfig
