@@ -1,7 +1,7 @@
 Summary:	Text to Postscript filter
-Summary(ja):    テキストⅹPostScript フィルタ
+Summary(ja):	テキストⅹPostScript フィルタ
 Summary(pl):	Filtr text/plain do Postscriptu
-Summary(zh_CN): 纯文本到Postscript转换器
+Summary(zh_CN):	纯文本到Postscript转换器
 Name:		a2ps
 Version:	4.13b
 Release:	23
