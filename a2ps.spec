@@ -1,8 +1,8 @@
 Summary:	Text to Postscript filter.
 Summary(pl):	Filtr text/plain do  Postscriptu
 Name:		a2ps
-Version:	4.12h
-Release:	2
+Version:	4.13b
+Release:	1
 License:	GPL
 Group:		Utilities/Text
 Group(pl):	Narzêdzia/Tekst
@@ -59,7 +59,7 @@ a2ps static libraries.
 Biblioteki statyczne do a2ps.   
 
 %prep
-%setup  -q 
+%setup  -q -n %{name}-4.13 
 %patch0 -p1
 
 %build
