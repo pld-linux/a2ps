@@ -72,7 +72,7 @@ LDFLAGS="-s"; export LDFLAGS
 	--with-medium=A4  \
 	--with-encoding=latin1 \
 	--enable-shared
-make
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
