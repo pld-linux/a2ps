@@ -7,7 +7,9 @@ Copyright:	GPL
 Group:		Utilities/Text
 Group(pl):	Narzêdzia/Tekst
 Source:		ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
-Patch:		a2ps-info.patch
+Patch0:		a2ps-info.patch
+Patch1:		a2ps-sed_fix.patch
+Patch2:		http://www.penguin.cz/~stano/code/a2ps-xkbprint.patch
 Prereq:		/usr/sbin/fix-info-dir
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
 BuildRoot:	/tmp/%{name}-%{version}-root
@@ -59,8 +61,10 @@ a2ps static libraries.
 Biblioteki statyczne do a2ps.
 
 %prep
-%setup -q 
-%patch -p1
+%setup  -q 
+%patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 LDFLAGS="-s"; export LDFLAGS
