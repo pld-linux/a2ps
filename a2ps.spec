@@ -32,7 +32,7 @@ encodings (ISO Latins, Cyrillic etc.), medias, and spoken languages
 processing of some files to other applications, letting you print DVI,
 PostScript etc. with the very same interface.
 
-%description -l pl 
+%description -l pl
 A2ps jest programem pozwalajaj±cym na ³adne drukowanie plików
 tekstowych w PostScript. Posiada wsparcie dla wielu ró¿nych jêzyków
 programowania, zestawów znaków (ISO Latins, Cyrilica etc.), wielko¶ci
