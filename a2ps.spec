@@ -1,12 +1,13 @@
-Summary:	Text to Postscript filter.
+Summary:	Text to Postscript filter
 Summary(pl):	Filtr text/plain do  Postscriptu
 Name:		a2ps
 Version:	4.13b
-Release:	3
+Release:	4
 License:	GPL
-Group:		Utilities/Text
+Group:		Applications/Text
+Group(de):	Applikationen/Text
 Group(fr):	Utilitaires/Texte
-Group(pl):	Narzêdzia/Tekst
+Group(pl):	Aplikacje/Tekst
 Source0:	ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
 Prereq:		/sbin/ldconfig
@@ -37,6 +38,7 @@ PostScript zawieraj±cy polskie znaki.
 Summary:	Header files and development documentation for a2ps
 Summary(pl):	Pliki nag³ówkowe i dokunentacja do a2ps
 Group:		Libraries
+Group(de):	Libraries
 Group(fr):	Librairies
 Group(pl):	Biblioteki
 Requires:	%{name} = %{version}
@@ -51,6 +53,7 @@ Pliki nag³ówkowe i dokumentacja do a2ps.
 Summary:	a2ps static libraries
 Summary(pl):	Biblioteki statyczne do a2ps
 Group:		Libraries
+Group(de):	Libraries
 Group(fr):	Librairies
 Group(pl):	Biblioteki
 Requires:	%{name}-devel = %{version}
@@ -79,13 +82,10 @@ rm -rf $RPM_BUILD_ROOT
 perl -pe 's/^lispdir = $/lispdir = \$(prefix)\/lib\/emacs\/site-lisp/g' contrib/emacs/Makefile >tmp
 
 mv -f tmp contrib/emacs/Makefile
+
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
-
-gzip -9nf $RPM_BUILD_ROOT%{_infodir}/* \
-	$RPM_BUILD_ROOT%{_mandir}/man1/* \
-	AUTHORS ChangeLog NEWS README THANKS
+gzip -9nf AUTHORS ChangeLog NEWS README THANKS
 
 %find_lang %{name}
 
