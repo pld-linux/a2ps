@@ -11,7 +11,7 @@ Patch0:		a2ps-info.patch
 Prereq:		/usr/sbin/fix-info-dir
 Prereq:		/sbin/ldconfig
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/a2ps
 
