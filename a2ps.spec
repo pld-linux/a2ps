@@ -117,11 +117,11 @@ install i18n-fonts-0.1/fonts/*.pfb %{buildroot}%{_datadir}/a2ps/fonts
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%fix_info_dir
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 /sbin/ldconfig
 
 %postun
-%fix_info_dir
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 /sbin/ldconfig
 
 %files -f %{name}.lang
