@@ -128,7 +128,7 @@ rm -rf $RPM_BUILD_ROOT
   [4.10.3-4]
 - simplification in files,
 - removed regexp info pages,
-- added striping shared libraries,
+- added stripping shared libraries,
 - changed default encoding to latin1,
 - added devel subpackage.
 
