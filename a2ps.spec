@@ -8,7 +8,9 @@ Release:	23
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
+# Source0-md5:	0c8e0c31b08c14f7a7198ce967eb3281
 Source1:	ftp://ftp.enst.fr/pub/unix/a2ps/i18n-fonts-0.1.tar.gz
+# Source1-md5:	fee1456d0e6e94af4fc5b5a1bb9687b7
 Source2:	ogonkify.1.pl
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-security.patch
