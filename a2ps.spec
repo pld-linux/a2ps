@@ -115,6 +115,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_infodir}/a2ps*info*
 %{_infodir}/ogonkify*info*
 
+%dir %{_datadir}/a2ps
 %dir %{_datadir}/a2ps/afm
 %{_datadir}/a2ps/afm/*.afm
 %{_datadir}/a2ps/afm/*.map
