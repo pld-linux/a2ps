@@ -2,12 +2,13 @@ Summary:     Text to Postscript filter.
 Summary(pl): Filtr text/plain do  Postscriptu
 Name:        a2ps
 Version:     4.10.4
-Release:     4
+Release:     5
 Copyright:   GPL
 Group:       Utilities/Text
-Source:      ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.bz2
-Url:         http://www.inf.enst.fr/~demaille/a2ps/
 Vendor:      Akim Demaille 
+Source:      ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.bz2
+Patch0:      a2ps-info.patch
+URL:         http://www.inf.enst.fr/~demaille/a2ps/
 BuildRoot:   /tmp/%{name}-%{version}-root
 
 %description
@@ -56,12 +57,15 @@ Biblioteki statyczne do a2ps.
 
 %prep
 %setup -q 
+%patch0 -p1
 
 %build
 
-CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" ./configure \
+CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
+./configure \
 	--with-included-gettext \
-	--prefix=/usr --sysconfdir=/etc \
+	--prefix=/usr \
+	--sysconfdir=/etc \
 	--with-medium=A4  \
 	--with-encoding=latin1
 
@@ -73,8 +77,19 @@ perl -pe 's/^lispdir = $/lispdir = {prefix}\/lib/g' contrib/emacs/Makefile > tmp
 
 mv tmp contrib/emacs/Makefile
 make prefix=$RPM_BUILD_ROOT/usr sysconfdir=$RPM_BUILD_ROOT/etc install
-gzip -9nf $RPM_BUILD_ROOT/usr/info/*
-strip $RPM_BUILD_ROOT/usr/{bin/*,lib/lib*so.*.*} || :
+
+strip $RPM_BUILD_ROOT/usr/lib/lib*so.*.*
+gzip -9nf $RPM_BUILD_ROOT/usr/{info/*,man/man1/*}
+
+%post
+/sbin/install-info /usr/info/a2ps.info.gz /etc/info-dir 
+/sbin/install-info /usr/info/ogonkify.info.gz /etc/info-dir 
+
+%preun
+if [ $1 = 0 ]; then
+	/sbin/install-info --delete /usr/info/a2ps.info.gz /etc/info-dir
+	/sbin/install-info --delete /usr/info/ogonkify.info.gz /etc/info-dir
+fi
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -124,6 +139,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(0644, root, root) /usr/lib/lib*.a
 
 %changelog
+* Mon Dec 28 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [4.10.3-5]
+- added %post, %postun with {un}registering info pages (added
+  a2ps-info.patch),
+- added gzipping man pages.
+
 * Thu Oct 15 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [4.10.3-4]
 - simplification in files,
