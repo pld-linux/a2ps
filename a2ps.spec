@@ -106,7 +106,7 @@ fi
 
 %config(noreplace) %verify(not size mtime md5) /etc/a2ps.cfg
 
-%attr(755,root,root) /usr/bin/*
+%attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/*.so.*
 %{_mandir}/man1/*
 %{_infodir}/a2ps*info*
