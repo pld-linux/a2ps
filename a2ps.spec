@@ -8,7 +8,8 @@ Group:		Utilities/Text
 Group(pl):	U¿ytki/Tekst
 Vendor:		Akim Demaille 
 Source:		ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.bz2
-Patch:		a2ps-info.patch
+Patch0:		a2ps-info.patch
+Patch1:		a2ps-make_fonts_map.patch
 Prereq:		/sbin/ldconfig
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
 BuildRoot:	/tmp/%{name}-%{version}-root
@@ -59,14 +60,16 @@ Biblioteki statyczne do a2ps.
 
 %prep
 %setup -q 
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 %build
 autoheader
 autoconf
 CFLAGS=$RPM_OPT_FLAGS LDFLAGS=-s \
     ./configure \
-	--with-included-gettext \
+    	--enable-nls \
+	--without-included-gettext \
 	--prefix=/usr \
 	--sysconfdir=/etc \
 	--with-medium=A4  \
@@ -170,6 +173,10 @@ fi
 rm -rf $RPM_BUILD_ROOT
 
 %changelog
+* Sat Feb 13 1999 Arkadiusz Mi¶kiewicz <misiek@misiek.eu.org>
+- added a2ps-make_fonts_map.patch
+- now compile with --enable-nls --without-included-gettext
+
 * Sun Jan 31 1999 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
   [4.10.3-5d]
 - added missiong fonts.map ...
