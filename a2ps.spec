@@ -5,8 +5,9 @@ Version:	4.13b
 Release:	1
 License:	GPL
 Group:		Utilities/Text
+Group(fr):	Utilitaires/Texte
 Group(pl):	Narzêdzia/Tekst
-Source:		ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
 Patch0:		a2ps-info.patch
 Prereq:		/sbin/ldconfig
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
@@ -15,47 +16,50 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_sysconfdir	/etc/a2ps
 
 %description
-a2ps is a text to PostScript filter with pretty-printing capabilities. It 
-includes support for a wide number of programming languages, encodings (ISO 
-Latins, Cyrillic etc.), medias, and spoken languages (for the interface). 
-It has also the ability to delegate the processing of some files to other 
-applications, letting you print DVI, PostScript etc. with the very same 
-interface.   
+a2ps is a text to PostScript filter with pretty-printing capabilities.
+It includes support for a wide number of programming languages,
+encodings (ISO Latins, Cyrillic etc.), medias, and spoken languages
+(for the interface). It has also the ability to delegate the
+processing of some files to other applications, letting you print DVI,
+PostScript etc. with the very same interface.
 
 %description -l pl 
-A2ps jest programem pozwalajaj±cym na ³adne drukowanie plików tekstowych w  
-PostScript. Posiada wsparcie dla wielu ró¿nych jêzyków programowania,  
-zestawów znaków (ISO Latins, Cyrilica etc.), wielko¶ci papieru, i jêzyków  
-komunikacji z u¿ytkownikiem. Potrafi tak¿e przekazaæ przetwarzanie plików  
-do innych programów (tak, ¿e mo¿na wszystko drukowaæ (DVI, PostScript) przy 
- u¿yciu tego samego polecenia. Zawiera program ,,ogonkify'' poprawiaj±cy  
-b³êdnie zakodowany PostScript zawieraj±cy polskie znaki.    
+A2ps jest programem pozwalajaj±cym na ³adne drukowanie plików
+tekstowych w PostScript. Posiada wsparcie dla wielu ró¿nych jêzyków
+programowania, zestawów znaków (ISO Latins, Cyrilica etc.), wielko¶ci
+papieru, i jêzyków komunikacji z u¿ytkownikiem. Potrafi tak¿e
+przekazaæ przetwarzanie plików do innych programów (tak, ¿e mo¿na
+wszystko drukowaæ (DVI, PostScript) przy u¿yciu tego samego polecenia.
+Zawiera program ,,ogonkify'' poprawiaj±cy b³êdnie zakodowany
+PostScript zawieraj±cy polskie znaki.
 
 %package devel
 Summary:	Header files and development documentation for a2ps
 Summary(pl):	Pliki nag³ówkowe i dokunentacja do a2ps
 Group:		Libraries
+Group(fr):	Librairies
 Group(pl):	Biblioteki
 Requires:	%{name} = %{version}
 
 %description devel
-Header files and development documentation for a2ps.   
+Header files and development documentation for a2ps.
 
 %description devel -l pl
-Pliki nag³ówkowe i dokumentacja do a2ps.   
+Pliki nag³ówkowe i dokumentacja do a2ps.
 
 %package static
 Summary:	a2ps static libraries
 Summary(pl):	Biblioteki statyczne do a2ps
 Group:		Libraries
+Group(fr):	Librairies
 Group(pl):	Biblioteki
 Requires:	%{name}-devel = %{version}
 
 %description static
-a2ps static libraries.   
+a2ps static libraries.
 
 %description static -l pl
-Biblioteki statyczne do a2ps.   
+Biblioteki statyczne do a2ps.
 
 %prep
 %setup  -q -n %{name}-4.13 
