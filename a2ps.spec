@@ -4,11 +4,13 @@ Summary(pl):	Filtr text/plain do Postscriptu
 Summary(zh_CN): ´¿ÎÄ±¾µ½Postscript×ª»»Æ÷
 Name:		a2ps
 Version:	4.13b
-Release:	23
+Release:	23.1
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
+# Source0-md5:	0c8e0c31b08c14f7a7198ce967eb3281
 Source1:	ftp://ftp.enst.fr/pub/unix/a2ps/i18n-fonts-0.1.tar.gz
+# Source1-md5:	fee1456d0e6e94af4fc5b5a1bb9687b7
 Source2:	ogonkify.1.pl
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-security.patch
@@ -19,6 +21,9 @@ Patch5:		%{name}-glibcpaper.patch
 Patch6:		%{name}-autoenc.patch
 Patch7:		%{name}-i18n.patch
 Patch8:		%{name}-ogonkify-xfig-fix.patch
+Patch9:		%{name}-pl.po-update.patch
+Patch10:	%{name}-malloc.patch
+Patch11:	%{name}-CAN-2004-1170.patch
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
 BuildRequires:	flex
 Prereq:		/sbin/ldconfig
@@ -36,7 +41,7 @@ processing of some files to other applications, letting you print DVI,
 PostScript etc. with the very same interface.
 
 %description -l pl
-A2ps jest programem pozwalajaj±cym na ³adne drukowanie plików
+A2ps jest programem pozwalaj±cym na ³adne drukowanie plików
 tekstowych w PostScript. Posiada wsparcie dla wielu ró¿nych jêzyków
 programowania, zestawów znaków (ISO Latins, Cyrilica etc.), wielko¶ci
 papieru, i jêzyków komunikacji z u¿ytkownikiem. Potrafi tak¿e
@@ -47,9 +52,9 @@ PostScript zawieraj±cy polskie znaki.
 
 %package devel
 Summary:	Header files and development documentation for a2ps
-Summary(pl):	Pliki nag³ówkowe i dokunentacja do a2ps
+Summary(pl):	Pliki nag³ówkowe i dokumentacja do a2ps
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files and development documentation for a2ps.
@@ -61,7 +66,7 @@ Pliki nag³ówkowe i dokumentacja do a2ps.
 Summary:	a2ps static libraries
 Summary(pl):	Biblioteki statyczne do a2ps
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 a2ps static libraries.
@@ -70,7 +75,7 @@ a2ps static libraries.
 Biblioteki statyczne do a2ps.
 
 %prep
-%setup  -q -n %{name}-4.13 -a 1
+%setup -q -n %{name}-4.13 -a1
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
@@ -80,6 +85,9 @@ Biblioteki statyczne do a2ps.
 %patch6 -p1
 %patch7 -p1
 %patch8 -p0
+%patch9 -p1
+%patch10 -p1
+%patch11 -p1
 
 %build
 %configure2_13 \
