@@ -1,0 +1,38 @@
+- added using CVS keywords in %changelog (for automating them).
+
+* Sun Jan 31 1999 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
+  [4.10.3-5d]
+- added missiong fonts.map ...
+- autoheader && autoconf before configure,
+- other 'extras' in %install section,
+- added %dir for %{_datadir}/a2ps/*,
+- added Group(pl),
+- minor changes in %files *.
+
+* Mon Dec 28 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [4.10.3-5]
+- added %post, %postun with {un}registering info pages (added
+  a2ps-info.patch),
+- added compressed man pages.
+
+* Thu Oct 15 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [4.10.3-4]
+- simplification in files,
+- removed regexp info pages,
+- added stripping shared libraries,
+- changed default encoding to latin1,
+- added devel subpackage.
+
+* Mon Sep 07 1998 Ziemek Borowski <ziembor@faq-bot.ziembor.waw.pl>
+  [4.10.3-3d]
+- based on Akim Demaille <demaille@inf.enst.fr> and 
+  Dave Whitinger <dave@whitinger.net> specs, 
+- added lang tag,
+- added pl spec translation,
+- more detailed %files,
+- default medium == A4,
+- default encoding == latin2,
+- build against GNU libc-2.1.
+
+* Mon Aug 07 1998 Soos Peter <sp@osb.hu>
+- BuildRoot spec correction %dir %{_datadir}/a2ps
