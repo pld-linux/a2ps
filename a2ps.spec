@@ -4,7 +4,7 @@ Summary(pl):	Filtr text/plain do Postscriptu
 Summary(zh_CN):	纯文本到Postscript转换器
 Name:		a2ps
 Version:	4.13b
-Release:	25
+Release:	26
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
@@ -22,6 +22,7 @@ Patch6:		%{name}-autoenc.patch
 Patch7:		%{name}-i18n.patch
 Patch8:		%{name}-ogonkify-xfig-fix.patch
 Patch9:		%{name}-pl.po-update.patch
+Patch10:	%{name}-locale-names.patch
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
 BuildRequires:	automake
 BuildRequires:	flex
@@ -54,7 +55,7 @@ PostScript zawieraj眂y polskie znaki.
 Summary:	Header files and development documentation for a2ps
 Summary(pl):	Pliki nag丑wkowe i dokumentacja do a2ps
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files and development documentation for a2ps.
@@ -66,7 +67,7 @@ Pliki nag丑wkowe i dokumentacja do a2ps.
 Summary:	a2ps static libraries
 Summary(pl):	Biblioteki statyczne do a2ps
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 a2ps static libraries.
@@ -86,6 +87,9 @@ Biblioteki statyczne do a2ps.
 %patch7 -p1
 %patch8 -p0
 %patch9 -p1
+%patch10 -p1
+
+mv -f po/{no,nb}.po
 
 %build
 cp -f /usr/share/automake/config.* auxdir
