@@ -8,7 +8,7 @@ Group:		Utilities/Text
 Group(fr):	Utilitaires/Texte
 Group(pl):	Narzêdzia/Tekst
 Source0:	ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
-Patch0:		a2ps-info.patch
+Patch0:		%{name}-info.patch
 Prereq:		/sbin/ldconfig
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -79,7 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 
 perl -pe 's/^lispdir = $/lispdir = \$(prefix)\/lib\/emacs\/site-lisp/g' contrib/emacs/Makefile >tmp
 
-mv tmp contrib/emacs/Makefile
+mv -f tmp contrib/emacs/Makefile
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
