@@ -80,6 +80,7 @@ Biblioteki statyczne do a2ps.
 %patch6 -p1
 %patch7 -p1
 %patch8 -p0
+
 %build
 %configure2_13 \
 	--with-gnu-gettext \
