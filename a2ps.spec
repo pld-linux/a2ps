@@ -1,5 +1,5 @@
 Summary:	Text to Postscript filter
-Summary(pl):	Filtr text/plain do  Postscriptu
+Summary(pl):	Filtr text/plain do Postscriptu
 Name:		a2ps
 Version:	4.13b
 Release:	18
@@ -52,6 +52,9 @@ Group(de):	Libraries
 Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
+Group(pt_BR):	Bibliotecas
+Group(ru):	Библиотеки
+Group(uk):	Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description devel
@@ -68,6 +71,9 @@ Group(de):	Libraries
 Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
+Group(pt_BR):	Bibliotecas
+Group(ru):	Библиотеки
+Group(uk):	Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static
