@@ -4,7 +4,7 @@ Summary(pl):	Filtr text/plain do Postscriptu
 Summary(zh_CN):	纯文本到Postscript转换器
 Name:		a2ps
 Version:	4.13b
-Release:	23
+Release:	24
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
@@ -21,9 +21,12 @@ Patch5:		%{name}-glibcpaper.patch
 Patch6:		%{name}-autoenc.patch
 Patch7:		%{name}-i18n.patch
 Patch8:		%{name}-ogonkify-xfig-fix.patch
+Patch9:		%{name}-pl.po-update.patch
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
+BuildRequires:	automake
 BuildRequires:	flex
-Prereq:		/sbin/ldconfig
+BuildRequires:	gettext-devel
+Requires(post,postun):	/sbin/ldconfig
 Requires:	psutils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -72,7 +75,7 @@ a2ps static libraries.
 Biblioteki statyczne do a2ps.
 
 %prep
-%setup  -q -n %{name}-4.13 -a 1
+%setup -q -n %{name}-4.13 -a1
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
@@ -82,8 +85,10 @@ Biblioteki statyczne do a2ps.
 %patch6 -p1
 %patch7 -p1
 %patch8 -p0
+%patch9 -p1
 
 %build
+cp -f /usr/share/automake/config.* auxdir
 %configure2_13 \
 	--with-gnu-gettext \
 	--with-medium=_glibc  \
@@ -97,9 +102,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/a2ps/{afm,fonts} \
 	$RPM_BUILD_ROOT%{_mandir}/pl/man1
 
-perl -pe 's/^lispdir = $/lispdir = \$(prefix)\/lib\/emacs\/site-lisp/g' contrib/emacs/Makefile >tmp
-
-mv -f tmp contrib/emacs/Makefile
+%{__perl} -pi -e 's/^lispdir = $/lispdir = \$(prefix)\/lib\/emacs\/site-lisp/g' contrib/emacs/Makefile
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
