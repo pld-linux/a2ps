@@ -8,7 +8,6 @@ Group:		Utilities/Text
 Group(pl):	Narzêdzia/Tekst
 Source:		ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
 Patch0:		a2ps-info.patch
-Prereq:		/usr/sbin/fix-info-dir
 Prereq:		/sbin/ldconfig
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -91,11 +90,11 @@ gzip -9nf $RPM_BUILD_ROOT%{_infodir}/* \
 rm -rf $RPM_BUILD_ROOT
 
 %post
-/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+[ -x /usr/sbin/fix-info-dir ] && /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 /sbin/ldconfig
 
 %postun
-/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+[ -x /usr/sbin/fix-info-dir ] && /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 /sbin/ldconfig
 
 %files -f %{name}.lang
