@@ -1,8 +1,10 @@
 Summary:	Text to Postscript filter
+Summary(ja):    テキストⅹPostScript フィルタ
 Summary(pl):	Filtr text/plain do Postscriptu
+Summary(zh_CN): 纯文本到Postscript转换器
 Name:		a2ps
 Version:	4.13b
-Release:	20
+Release:	22
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
@@ -97,11 +99,10 @@ mv -f tmp contrib/emacs/Makefile
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf AUTHORS ChangeLog NEWS README THANKS
-
 install i18n-fonts-0.1/afm/*.afm %{buildroot}%{_datadir}/a2ps/afm
 install i18n-fonts-0.1/fonts/*.pfb %{buildroot}%{_datadir}/a2ps/fonts
 install %{SOURCE2} $RPM_BUILD_ROOT%{_mandir}/pl/man1
+
 %find_lang %{name}
 
 %clean
@@ -117,7 +118,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc {AUTHORS,ChangeLog,NEWS,README,THANKS}.gz
+%doc AUTHORS ChangeLog NEWS README THANKS
 
 %dir %{_sysconfdir}
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/a2ps.cfg
