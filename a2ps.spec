@@ -2,7 +2,7 @@ Summary:	Text to Postscript filter.
 Summary(pl):	Filtr text/plain do  Postscriptu
 Name:		a2ps
 Version:	4.13b
-Release:	1
+Release:	2
 License:	GPL
 Group:		Utilities/Text
 Group(fr):	Utilitaires/Texte
@@ -105,6 +105,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc {AUTHORS,ChangeLog,NEWS,README,THANKS}.gz
 
+%dir %{_sysconfdir}
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/a2ps.cfg
 %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/a2ps-site.cfg
 
