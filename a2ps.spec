@@ -2,16 +2,24 @@ Summary:	Text to Postscript filter
 Summary(pl):	Filtr text/plain do  Postscriptu
 Name:		a2ps
 Version:	4.13b
-Release:	4
+Release:	14
 License:	GPL
 Group:		Applications/Text
 Group(de):	Applikationen/Text
 Group(fr):	Utilitaires/Texte
 Group(pl):	Aplikacje/Tekst
 Source0:	ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
+Source1:	ftp://ftp.enst.fr/pub/unix/a2ps/i18n-fonts-0.1.tar.gz
 Patch0:		%{name}-info.patch
-Prereq:		/sbin/ldconfig
+Patch1:		%{name}-security.patch
+Patch2:		%{name}-etc.patch
+Patch3:		%{name}-flex.patch
+Patch4:		%{name}-conf.patch
+Patch5:		%{name}-glibcpaper.patch
+Patch6:		%{name}-autoenc.patch
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
+Prereq:		/sbin/ldconfig
+Requires:	psutils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/a2ps
@@ -39,6 +47,7 @@ Summary:	Header files and development documentation for a2ps
 Summary(pl):	Pliki nag³ówkowe i dokunentacja do a2ps
 Group:		Libraries
 Group(de):	Libraries
+Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
 Requires:	%{name} = %{version}
@@ -54,6 +63,7 @@ Summary:	a2ps static libraries
 Summary(pl):	Biblioteki statyczne do a2ps
 Group:		Libraries
 Group(de):	Libraries
+Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
 Requires:	%{name}-devel = %{version}
@@ -65,20 +75,27 @@ a2ps static libraries.
 Biblioteki statyczne do a2ps.
 
 %prep
-%setup  -q -n %{name}-4.13 
+%setup  -q -n %{name}-4.13 -a 1
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
+%patch4 -p1
+%patch5 -p1
+%patch6 -p1
 
 %build
 %configure \
- --sysconfdir=/etc/a2ps \
- --with-gnu-gettext \
-	--with-medium=A4  \
+	--with-gnu-gettext \
+	--with-medium=_glibc  \
 	--with-encoding=latin1 \
-	--enable-shared
+	--enable-shared \
+	--enable-kanji
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT/usr/share/a2ps/{afm,fonts}
 
 perl -pe 's/^lispdir = $/lispdir = \$(prefix)\/lib\/emacs\/site-lisp/g' contrib/emacs/Makefile >tmp
 
@@ -87,6 +104,9 @@ mv -f tmp contrib/emacs/Makefile
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 gzip -9nf AUTHORS ChangeLog NEWS README THANKS
+
+install i18n-fonts-0.1/afm/*.afm %{buildroot}/usr/share/a2ps/afm
+install i18n-fonts-0.1/fonts/*.pfb %{buildroot}/usr/share/a2ps/fonts
 
 %find_lang %{name}
 
