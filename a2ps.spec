@@ -2,11 +2,10 @@ Summary:	Text to Postscript filter.
 Summary(pl):	Filtr text/plain do  Postscriptu
 Name:		a2ps
 Version:	4.10.4
-Release:	5d
+Release:	6
 Copyright:	GPL
 Group:		Utilities/Text
-Group(pl):	U¿ytki/Tekst
-Vendor:		Akim Demaille 
+Group(pl):	Narzêdzia/Tekst
 Source:		ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.bz2
 Patch:		a2ps-info.patch
 Prereq:		/sbin/ldconfig
@@ -42,7 +41,7 @@ Requires:	%{name} = %{version}
 Header files and development documentation for a2ps.
 
 %description devel -l pl
-Pliki nag³ówkowe i dokunentacja do a2ps.
+Pliki nag³ówkowe i dokumentacja do a2ps.
 
 %package	static
 Summary:	a2ps static libraries
@@ -65,7 +64,7 @@ Biblioteki statyczne do a2ps.
 autoheader
 autoconf
 CFLAGS=$RPM_OPT_FLAGS LDFLAGS=-s \
-    ./configure \
+./configure \
 	--with-included-gettext \
 	--prefix=/usr \
 	--sysconfdir=/etc \
@@ -82,10 +81,10 @@ perl -pe 's/^lispdir = $/lispdir = {prefix}\/lib/g' contrib/emacs/Makefile >tmp
 mv tmp contrib/emacs/Makefile
 make prefix=$RPM_BUILD_ROOT/usr sysconfdir=$RPM_BUILD_ROOT/etc install
 
-chmod 755	$RPM_BUILD_ROOT/usr/lib/*.so.*
-gzip -9nf	$RPM_BUILD_ROOT/usr/info/*
-bzip2 -9	$RPM_BUILD_ROOT/usr/man/man1/* AUTHORS \
-		ChangeLog NEWS README THANKS
+#chmod 755	$RPM_BUILD_ROOT/usr/lib/*.so.*
+gzip -9nf $RPM_BUILD_ROOT/usr/info/* \
+	$RPM_BUILD_ROOT/usr/man/man1/* \
+	AUTHORS ChangeLog NEWS README THANKS
 
 %post
 /sbin/install-info /usr/info/a2ps.info.gz /etc/info-dir 
@@ -102,15 +101,14 @@ fi
 /sbin/ldconfig
 
 %files
-%defattr(644, root, root, 755)
-%doc AUTHORS.bz2 ChangeLog.bz2 NEWS.bz2 README.bz2 THANKS.bz2
+%defattr(644,root,root,755)
+%doc {AUTHORS,ChangeLog,NEWS,README,THANKS}.gz
 
 %config(noreplace) %verify(not size mtime md5) /etc/a2ps.cfg
 
 %attr(755,root,root) /usr/bin/*
 %attr(755,root,root) /usr/lib/*.so.*
-%attr(644,root, man) /usr/man/man1/*
-
+/usr/man/man1/*
 /usr/info/a2ps*info*
 /usr/info/ogonkify*info*
 
