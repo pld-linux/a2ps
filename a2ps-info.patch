@@ -1,0 +1,44 @@
+diff -ur a2ps-4.12/doc/a2ps.texi a2ps-4.12.new/doc/a2ps.texi
+--- a2ps-4.12/doc/a2ps.texi	Tue Feb  9 11:26:28 1999
++++ a2ps-4.12.new/doc/a2ps.texi	Tue Jul 13 18:27:10 1999
+@@ -59,16 +59,16 @@
+ @TeX{}Script
+ @end macro
+ 
+-@dircategory Printing Tools
++@dircategory Printing Tools:
+ @direntry
+-* a2ps: (a2ps).                    PostScript Generating Utility
+-* PreScript: (a2ps) PreScript.     Input language for a2ps
+-* card: (a2ps) card.               Print Reference Cards
+-* fixps: (a2ps) fixps.             Fixing Some Ill Designed PostScript Files
+-* fixnt: (a2ps) fixnt.             Fixing Microsoft NT PostScript Files
+-* pdiff: (a2ps) pdiff.             Produce Pretty Comparison of Files
+-* psmandup: (a2ps) psmandup.       Printing Duplex on Simplex Printers
+-* psset: (a2ps) psset.             Inserting calls to setpagedevice
++* a2ps: (a2ps).				PostScript Generating Utility
++* card: (a2ps)card.			Print Reference Cards
++* fixps: (a2ps)fixps.			Fixing Some Ill Designed PostScript Files
++* fixnt: (a2ps)fixnt.			Fixing Microsoft NT PostScript Files
++* pdiff: (a2ps)pdiff.			Produce Pretty Comparison of Files
++* psmandup: (a2ps)psmandup.		Printing Duplex on Simplex Printers
++* PreScript: (a2ps)PreScript.		Input language for a2ps
++* psset: (a2ps)psset.			Inserting calls to setpagedevice
+ @end direntry
+ 
+ @ifinfo
+diff -ur a2ps-4.12/ogonkify/doc/ogonkify.texi a2ps-4.12.new/ogonkify/doc/ogonkify.texi
+--- a2ps-4.12/ogonkify/doc/ogonkify.texi	Tue Feb  9 11:26:58 1999
++++ a2ps-4.12.new/ogonkify/doc/ogonkify.texi	Tue Jul 13 18:26:16 1999
+@@ -7,9 +7,9 @@
+ 
+ @c Time-stamp: <98/09/03 18:06:48 jec>
+ 
+-@dircategory Printing Tools
++@dircategory Printing Tools:
+ @direntry
+-* ogonkify: (ogonkify).               Ogonkify
++* ogonkify: (ogonkify).			Ogonkify
+ @end direntry
+ 
+ @ifinfo
