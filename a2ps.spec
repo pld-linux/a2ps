@@ -82,19 +82,19 @@ mv tmp contrib/emacs/Makefile
 make prefix=$RPM_BUILD_ROOT/usr sysconfdir=$RPM_BUILD_ROOT/etc install
 
 #chmod 755	$RPM_BUILD_ROOT/usr/lib/*.so.*
-gzip -9nf $RPM_BUILD_ROOT/usr/info/* \
-	$RPM_BUILD_ROOT/usr/man/man1/* \
+gzip -9nf $RPM_BUILD_ROOT%{_infodir}/* \
+	$RPM_BUILD_ROOT%{_mandir}/man1/* \
 	AUTHORS ChangeLog NEWS README THANKS
 
 %post
-/sbin/install-info /usr/info/a2ps.info.gz /etc/info-dir 
-/sbin/install-info /usr/info/ogonkify.info.gz /etc/info-dir 
+/sbin/install-info %{_infodir}/a2ps.info.gz /etc/info-dir 
+/sbin/install-info %{_infodir}/ogonkify.info.gz /etc/info-dir 
 /sbin/ldconfig
 
 %preun
 if [ $1 = 0 ]; then
-	/sbin/install-info --delete /usr/info/a2ps.info.gz /etc/info-dir
-	/sbin/install-info --delete /usr/info/ogonkify.info.gz /etc/info-dir
+	/sbin/install-info --delete %{_infodir}/a2ps.info.gz /etc/info-dir
+	/sbin/install-info --delete %{_infodir}/ogonkify.info.gz /etc/info-dir
 fi
 
 %postun 
@@ -108,9 +108,9 @@ fi
 
 %attr(755,root,root) /usr/bin/*
 %attr(755,root,root) /usr/lib/*.so.*
-/usr/man/man1/*
-/usr/info/a2ps*info*
-/usr/info/ogonkify*info*
+%{_mandir}/man1/*
+%{_infodir}/a2ps*info*
+%{_infodir}/ogonkify*info*
 
 %lang(ca) /usr/share/locale/ca/LC_MESSAGES/a2ps.mo
 %lang(cs) /usr/share/locale/cs/LC_MESSAGES/a2ps.mo
