@@ -1,0 +1,3 @@
+- /sbin/ldconfig is now runed as -p %posun patameter (removed Prereq:
+  /sbin/ldconfig).
+- cosmetics and simplifications in %files.
