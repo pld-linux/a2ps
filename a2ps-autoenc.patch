@@ -33,7 +33,7 @@
    style_sheets = new_style_sheets ();
 +
 +  /* Process special case: Japanese Document */
-+  if (! strncmp (locale, "ja", 2) )
++  if ((locale != NULL) && ! strncmp (locale, "ja", 2) )
 +    job->requested_encoding_name = xstrdup ("euc-jp");
  
    /* Process the command line options. */
