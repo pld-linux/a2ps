@@ -70,7 +70,8 @@ Biblioteki statyczne do a2ps.
 
 %build
 %configure \
-	--with-gnu-gettext \
+ --sysconfdir=/etc/a2ps \
+ --with-gnu-gettext \
 	--with-medium=A4  \
 	--with-encoding=latin1 \
 	--enable-shared
