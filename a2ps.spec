@@ -2,7 +2,7 @@ Summary:	Text to Postscript filter
 Summary(pl):	Filtr text/plain do Postscriptu
 Name:		a2ps
 Version:	4.13b
-Release:	19
+Release:	20
 License:	GPL
 Group:		Applications/Text
 Group(de):	Applikationen/Text
@@ -12,7 +12,7 @@ Source0:	ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.enst.fr/pub/unix/a2ps/i18n-fonts-0.1.tar.gz
 Source2:	ogonkify.1.pl
 Patch0:		%{name}-info.patch
-#Patch1:		%{name}-security.patch
+Patch1:		%{name}-security.patch
 Patch2:		%{name}-etc.patch
 Patch3:		%{name}-flex.patch
 Patch4:		%{name}-conf.patch
@@ -48,14 +48,14 @@ PostScript zawieraj╠cy polskie znaki.
 %package devel
 Summary:	Header files and development documentation for a2ps
 Summary(pl):	Pliki nagЁСwkowe i dokunentacja do a2ps
-Group:		Libraries
-Group(de):	Libraries
-Group(es):	Bibliotecas
-Group(fr):	Librairies
-Group(pl):	Biblioteki
-Group(pt_BR):	Bibliotecas
-Group(ru):	Библиотеки
-Group(uk):	Б╕бл╕отеки
+Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
+Group(fr):	Development/Librairies
+Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	Разработка/Библиотеки
+Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description devel
@@ -67,14 +67,14 @@ Pliki nagЁСwkowe i dokumentacja do a2ps.
 %package static
 Summary:	a2ps static libraries
 Summary(pl):	Biblioteki statyczne do a2ps
-Group:		Libraries
-Group(de):	Libraries
-Group(es):	Bibliotecas
-Group(fr):	Librairies
-Group(pl):	Biblioteki
-Group(pt_BR):	Bibliotecas
-Group(ru):	Библиотеки
-Group(uk):	Б╕бл╕отеки
+Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
+Group(fr):	Development/Librairies
+Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	Разработка/Библиотеки
+Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static
@@ -86,7 +86,7 @@ Biblioteki statyczne do a2ps.
 %prep
 %setup  -q -n %{name}-4.13 -a 1
 %patch0 -p1
-#%patch1 -p1
+%patch1 -p1
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1

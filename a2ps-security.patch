@@ -10,8 +10,8 @@ diff -ur a2ps-4.13.orig/lib/routines.c a2ps-4.13/lib/routines.c
 + * Securely generate a temp file, and make sure it gets
 + * deleted upon exit.
 + */
-+static char **	tempfiles;
-+static unsigned	ntempfiles;
++static char **	tempfiles = NULL;
++static unsigned	ntempfiles = 0;
 +
 +static void
 +cleanup_tempfiles()
@@ -38,7 +38,7 @@ diff -ur a2ps-4.13.orig/lib/routines.c a2ps-4.13/lib/routines.c
 +	if (!filename)
 +		return NULL;
 +
-+	sprintf(filename, "%s/%sXXXXXX", dirname, filename);
++	sprintf(filename, "%s/%sXXXXXX", dirname, pfx);
 +
 +	if ((fd = mkstemp(filename)) < 0) {
 +		free(filename);
