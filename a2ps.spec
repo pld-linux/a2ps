@@ -11,7 +11,7 @@ Group(pl):	Aplikacje/Tekst
 Source0:	ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
 Source1:	ftp://ftp.enst.fr/pub/unix/a2ps/i18n-fonts-0.1.tar.gz
 Patch0:		%{name}-info.patch
-Patch1:		%{name}-security.patch
+#Patch1:		%{name}-security.patch
 Patch2:		%{name}-etc.patch
 Patch3:		%{name}-flex.patch
 Patch4:		%{name}-conf.patch
@@ -78,7 +78,7 @@ Biblioteki statyczne do a2ps.
 
 %prep
 %setup  -q -n %{name}-4.13 -a 1
-%patch0 -p1
+#%patch0 -p1
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
