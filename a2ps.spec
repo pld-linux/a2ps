@@ -45,8 +45,8 @@ processing of some files to other applications, letting you print DVI,
 PostScript etc. with the very same interface.
 
 %description -l pl
-A2ps jest programem pozwalaj±cym na ³adne drukowanie plików
-tekstowych w PostScript. Posiada wsparcie dla wielu ró¿nych jêzyków
+A2ps jest programem pozwalaj±cym na ³adne drukowanie plików tekstowych
+w PostScript. Posiada wsparcie dla wielu ró¿nych jêzyków
 programowania, zestawów znaków (ISO Latins, Cyrilica etc.), wielko¶ci
 papieru, i jêzyków komunikacji z u¿ytkownikiem. Potrafi tak¿e
 przekazaæ przetwarzanie plików do innych programów (tak, ¿e mo¿na
@@ -116,8 +116,8 @@ install -d $RPM_BUILD_ROOT%{_datadir}/a2ps/{afm,fonts} \
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install i18n-fonts-0.1/afm/*.afm %{buildroot}%{_datadir}/a2ps/afm
-install i18n-fonts-0.1/fonts/*.pfb %{buildroot}%{_datadir}/a2ps/fonts
+install i18n-fonts-0.1/afm/*.afm $RPM_BUILD_ROOT%{_datadir}/a2ps/afm
+install i18n-fonts-0.1/fonts/*.pfb $RPM_BUILD_ROOT%{_datadir}/a2ps/fonts
 install %{SOURCE2} $RPM_BUILD_ROOT%{_mandir}/pl/man1
 
 %find_lang %{name}
@@ -137,8 +137,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README THANKS
 %dir %{_sysconfdir}
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/a2ps.cfg
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/a2ps-site.cfg
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/a2ps.cfg
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/a2ps-site.cfg
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_mandir}/man1/*
