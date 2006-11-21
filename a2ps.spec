@@ -25,6 +25,7 @@ Patch9:		%{name}-pl.po-update.patch
 Patch10:	%{name}-locale-names.patch
 Patch11:	%{name}-malloc.patch
 Patch12:	%{name}-CAN-2004-1170.patch
+Patch13:	%{name}-atan2.patch
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
 BuildRequires:	automake
 BuildRequires:	flex
@@ -93,6 +94,7 @@ Biblioteki statyczne do a2ps.
 %patch10 -p1
 %patch11 -p1
 %patch12 -p1
+%patch13 -p1
 
 mv -f po/{no,nb}.po
 
