@@ -1,7 +1,7 @@
 Summary:	Text to Postscript filter
-Summary(ja):	¥Æ¥­¥¹¥È¢ªPostScript ¥Õ¥£¥ë¥¿
-Summary(pl):	Filtr text/plain do Postscriptu
-Summary(zh_CN):	´¿ÎÄ±¾µ½Postscript×ª»»Æ÷
+Summary(ja.UTF-8):   ãƒ†ã‚­ã‚¹ãƒˆâ†’PostScript ãƒ•ã‚£ãƒ«ã‚¿
+Summary(pl.UTF-8):   Filtr text/plain do Postscriptu
+Summary(zh_CN.UTF-8):   çº¯æ–‡æœ¬åˆ°Postscriptè½¬æ¢å™¨
 Name:		a2ps
 Version:	4.13b
 Release:	28
@@ -45,38 +45,38 @@ encodings (ISO Latins, Cyrillic etc.), medias, and spoken languages
 processing of some files to other applications, letting you print DVI,
 PostScript etc. with the very same interface.
 
-%description -l pl
-A2ps jest programem pozwalaj±cym na ³adne drukowanie plików tekstowych
-w PostScript. Posiada wsparcie dla wielu ró¿nych jêzyków
-programowania, zestawów znaków (ISO Latins, Cyrilica etc.), wielko¶ci
-papieru, i jêzyków komunikacji z u¿ytkownikiem. Potrafi tak¿e
-przekazaæ przetwarzanie plików do innych programów (tak, ¿e mo¿na
-wszystko drukowaæ (DVI, PostScript) przy u¿yciu tego samego polecenia.
-Zawiera program ,,ogonkify'' poprawiaj±cy b³êdnie zakodowany
-PostScript zawieraj±cy polskie znaki.
+%description -l pl.UTF-8
+A2ps jest programem pozwalajÄ…cym na Å‚adne drukowanie plikÃ³w tekstowych
+w PostScript. Posiada wsparcie dla wielu rÃ³Å¼nych jÄ™zykÃ³w
+programowania, zestawÃ³w znakÃ³w (ISO Latins, Cyrilica etc.), wielkoÅ›ci
+papieru, i jÄ™zykÃ³w komunikacji z uÅ¼ytkownikiem. Potrafi takÅ¼e
+przekazaÄ‡ przetwarzanie plikÃ³w do innych programÃ³w (tak, Å¼e moÅ¼na
+wszystko drukowaÄ‡ (DVI, PostScript) przy uÅ¼yciu tego samego polecenia.
+Zawiera program ,,ogonkify'' poprawiajÄ…cy bÅ‚Ä™dnie zakodowany
+PostScript zawierajÄ…cy polskie znaki.
 
 %package devel
 Summary:	Header files and development documentation for a2ps
-Summary(pl):	Pliki nag³ówkowe i dokumentacja do a2ps
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe i dokumentacja do a2ps
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files and development documentation for a2ps.
 
-%description devel -l pl
-Pliki nag³ówkowe i dokumentacja do a2ps.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe i dokumentacja do a2ps.
 
 %package static
 Summary:	a2ps static libraries
-Summary(pl):	Biblioteki statyczne do a2ps
+Summary(pl.UTF-8):   Biblioteki statyczne do a2ps
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 a2ps static libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteki statyczne do a2ps.
 
 %prep
