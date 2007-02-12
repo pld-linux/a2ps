@@ -1,7 +1,7 @@
 Summary:	Text to Postscript filter
-Summary(ja.UTF-8):   テキスト→PostScript フィルタ
-Summary(pl.UTF-8):   Filtr text/plain do Postscriptu
-Summary(zh_CN.UTF-8):   纯文本到Postscript转换器
+Summary(ja.UTF-8):	テキスト→PostScript フィルタ
+Summary(pl.UTF-8):	Filtr text/plain do Postscriptu
+Summary(zh_CN.UTF-8):	纯文本到Postscript转换器
 Name:		a2ps
 Version:	4.13b
 Release:	28
@@ -57,7 +57,7 @@ PostScript zawierający polskie znaki.
 
 %package devel
 Summary:	Header files and development documentation for a2ps
-Summary(pl.UTF-8):   Pliki nagłówkowe i dokumentacja do a2ps
+Summary(pl.UTF-8):	Pliki nagłówkowe i dokumentacja do a2ps
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -69,7 +69,7 @@ Pliki nagłówkowe i dokumentacja do a2ps.
 
 %package static
 Summary:	a2ps static libraries
-Summary(pl.UTF-8):   Biblioteki statyczne do a2ps
+Summary(pl.UTF-8):	Biblioteki statyczne do a2ps
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
