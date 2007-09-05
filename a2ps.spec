@@ -4,7 +4,7 @@ Summary(pl.UTF-8):	Filtr text/plain do Postscriptu
 Summary(zh_CN.UTF-8):	纯文本到Postscript转换器
 Name:		a2ps
 Version:	4.13b
-Release:	28
+Release:	29
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
