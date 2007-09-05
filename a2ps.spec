@@ -1,10 +1,14 @@
+#
+# TODO:
+#	- do something with libpaper
+#
 Summary:	Text to Postscript filter
 Summary(ja.UTF-8):	テキスト→PostScript フィルタ
 Summary(pl.UTF-8):	Filtr text/plain do Postscriptu
 Summary(zh_CN.UTF-8):	纯文本到Postscript转换器
 Name:		a2ps
 Version:	4.13b
-Release:	29
+Release:	30
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
@@ -27,9 +31,9 @@ Patch11:	%{name}-malloc.patch
 Patch12:	%{name}-CAN-2004-1170.patch
 Patch13:	%{name}-atan2.patch
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
+BuildConflicts:	libpaper-devel
 BuildRequires:	automake
 BuildRequires:	flex
-BuildRequires:	libpaper-devel
 BuildRequires:	gettext-devel
 BuildRequires:	texinfo
 Requires(post,postun):	/sbin/ldconfig
