@@ -29,6 +29,7 @@ Patch13:	%{name}-atan2.patch
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
 BuildRequires:	automake
 BuildRequires:	flex
+BuildRequires:	libpaper-devel
 BuildRequires:	gettext-devel
 BuildRequires:	texinfo
 Requires(post,postun):	/sbin/ldconfig
