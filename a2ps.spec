@@ -37,6 +37,7 @@ BuildConflicts:	libpaper-devel
 BuildRequires:	automake
 BuildRequires:	flex
 BuildRequires:	gettext-devel
+BuildRequires:	gperf
 BuildRequires:	texinfo
 Requires(post,postun):	/sbin/ldconfig
 Requires:	psutils
