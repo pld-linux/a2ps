@@ -150,7 +150,8 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/a2ps.cfg
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/a2ps-site.cfg
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/liba2ps.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/liba2ps.so.1
 %{_mandir}/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
 %{_infodir}/a2ps*info*
@@ -176,10 +177,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/lib*.la
-%attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/liba2ps.la
+%attr(755,root,root) %{_libdir}/liba2ps.so
 %{_includedir}/*
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/liba2ps.a
