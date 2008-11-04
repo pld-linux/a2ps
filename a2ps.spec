@@ -28,10 +28,7 @@ Patch7:		%{name}-i18n.patch
 Patch8:		%{name}-ogonkify-xfig-fix.patch
 Patch9:		%{name}-pl.po-update.patch
 Patch10:	%{name}-locale-names.patch
-Patch11:	%{name}-malloc.patch
-Patch12:	%{name}-CAN-2004-1170.patch
-Patch13:	%{name}-atan2.patch
-Patch14:	%{name}-psset.patch
+Patch11:	%{name}-atan2.patch
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
 BuildConflicts:	libpaper-devel
 BuildRequires:	automake
@@ -100,10 +97,7 @@ Biblioteki statyczne do a2ps.
 %patch8 -p0
 %patch9 -p1
 %patch10 -p1
-# %patch11 -p1
-#%patch12 -p1
-%patch13 -p1
-#%patch14 -p1
+%patch11 -p1
 
 mv -f po/{no,nb}.po
 
