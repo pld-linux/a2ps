@@ -12,7 +12,7 @@ Release:	0.1
 License:	GPL
 Group:		Applications/Text
 # Source0:	ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
-Source0:	http://ftp.gnu.org/gnu/a2ps/a2ps-4.14.tar.gz
+Source0:	http://ftp.gnu.org/gnu/a2ps/%{name}-%{version}.tar.gz
 # Source0-md5:	781ac3d9b213fa3e1ed0d79f986dc8c7
 Source1:	ftp://ftp.enst.fr/pub/unix/a2ps/i18n-fonts-0.1.tar.gz
 # Source1-md5:	fee1456d0e6e94af4fc5b5a1bb9687b7
@@ -30,12 +30,12 @@ Patch9:		%{name}-pl.po-update.patch
 Patch10:	%{name}-locale-names.patch
 Patch11:	%{name}-atan2.patch
 URL:		http://www.inf.enst.fr/~demaille/a2ps/
-BuildConflicts:	libpaper-devel
 BuildRequires:	automake
 BuildRequires:	flex
 BuildRequires:	gettext-devel
 BuildRequires:	gperf
 BuildRequires:	texinfo
+BuildConflicts:	libpaper-devel
 Requires(post,postun):	/sbin/ldconfig
 Requires:	psutils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -85,7 +85,7 @@ a2ps static libraries.
 Biblioteki statyczne do a2ps.
 
 %prep
-%setup -q -n %{name}-%{version} -a1
+%setup -q -a1
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
