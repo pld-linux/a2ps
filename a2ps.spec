@@ -7,12 +7,13 @@ Summary(ja.UTF-8):	テキスト→PostScript フィルタ
 Summary(pl.UTF-8):	Filtr text/plain do Postscriptu
 Summary(zh_CN.UTF-8):	纯文本到Postscript转换器
 Name:		a2ps
-Version:	4.13b
-Release:	31
+Version:	4.14
+Release:	0.1
 License:	GPL
 Group:		Applications/Text
-Source0:	ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
-# Source0-md5:	0c8e0c31b08c14f7a7198ce967eb3281
+# Source0:	ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
+Source0:	http://ftp.gnu.org/gnu/a2ps/a2ps-4.14.tar.gz
+# Source0-md5:	781ac3d9b213fa3e1ed0d79f986dc8c7
 Source1:	ftp://ftp.enst.fr/pub/unix/a2ps/i18n-fonts-0.1.tar.gz
 # Source1-md5:	fee1456d0e6e94af4fc5b5a1bb9687b7
 Source2:	ogonkify.1.pl
@@ -86,7 +87,7 @@ a2ps static libraries.
 Biblioteki statyczne do a2ps.
 
 %prep
-%setup -q -n %{name}-4.13 -a1
+%setup -q -n %{name}-%{version} -a1
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
@@ -98,10 +99,10 @@ Biblioteki statyczne do a2ps.
 %patch8 -p0
 %patch9 -p1
 %patch10 -p1
-%patch11 -p1
-%patch12 -p1
+# %patch11 -p1
+#%patch12 -p1
 %patch13 -p1
-%patch14 -p1
+#%patch14 -p1
 
 mv -f po/{no,nb}.po
 
