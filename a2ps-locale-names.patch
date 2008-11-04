@@ -4,8 +4,8 @@
  EOF
  
  # Available translations
--ALL_LINGUAS="ca cs da de es et fr it ko nl no pl pt ru sl sv tr"
-+ALL_LINGUAS="ca cs da de es et fr it ko nl nb pl pt ru sl sv tr"
+-ALL_LINGUAS="ca cs da de es fr it ja ko nl no pl pt ru sl sv tr"
++ALL_LINGUAS="ca cs da de es fr it ja ko nl nb pl pt ru sl sv tr"
  
  ## --------------------- ##
  ## Checks for programs.  ##

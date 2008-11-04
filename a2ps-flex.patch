@@ -1,73 +1,36 @@
---- a2ps-4.13/lib/Makefile.in.flex	Wed Feb  9 09:33:01 2000
-+++ a2ps-4.13/lib/Makefile.in	Thu Apr 27 19:00:20 2000
-@@ -100,7 +100,7 @@
- INTLDEPS = @INTLDEPS@
+diff -Naur a2ps-4.14.orig/lib/Makefile.in a2ps-4.14/lib/Makefile.in
+--- a2ps-4.14.orig/lib/Makefile.in	2008-11-02 03:28:37.000000000 +0100
++++ a2ps-4.14/lib/Makefile.in	2008-11-02 03:21:01.000000000 +0100
+@@ -198,7 +198,7 @@
+ INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
  INTLLIBS = @INTLLIBS@
- INTLOBJS = @INTLOBJS@
+ LDFLAGS = @LDFLAGS@
 -LEX = @LEX@
 +LEX = @LEX@ -CFe
+ LEXLIB = @LEXLIB@
  LEX_OUTPUT_ROOT = @LEX_OUTPUT_ROOT@
- LIBOBJS = @LIBOBJS@
- LIBTOOL = @LIBTOOL@
---- a2ps-4.13/lib/fonts.l.flex	Wed Dec 15 18:27:01 1999
-+++ a2ps-4.13/lib/fonts.l	Thu Apr 27 19:00:20 2000
-@@ -178,7 +178,7 @@
- 
- %}
- 
--%option yylineno
-+/* %option yylineno */
- %option prefix="afm"
- %option outfile="lex.yy.c"
- 
-@@ -524,7 +524,7 @@
-   const char * filename;
-   FILE * stream;
- 
--  yylineno = 0;
-+  /* yylineno = 0; */
- 
-   /* Find its AFM file: first resolve its font file name */
-   filename = fonts_map_resolve_alias (job->fonts_map, font->key);
---- a2ps-4.13/src/Makefile.in.flex	Wed Feb  9 09:34:18 2000
-+++ a2ps-4.13/src/Makefile.in	Thu Apr 27 19:00:20 2000
-@@ -100,7 +100,7 @@
- INTLDEPS = @INTLDEPS@
+ LIBICONV = @LIBICONV@
+diff -Naur a2ps-4.14.orig/Makefile.in a2ps-4.14/Makefile.in
+--- a2ps-4.14.orig/Makefile.in	2008-11-02 03:28:37.000000000 +0100
++++ a2ps-4.14/Makefile.in	2008-11-02 03:25:17.000000000 +0100
+@@ -161,7 +161,7 @@
+ INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
  INTLLIBS = @INTLLIBS@
- INTLOBJS = @INTLOBJS@
+ LDFLAGS = @LDFLAGS@
 -LEX = @LEX@
 +LEX = @LEX@ -CFe
+ LEXLIB = @LEXLIB@
  LEX_OUTPUT_ROOT = @LEX_OUTPUT_ROOT@
- LIBOBJS = @LIBOBJS@
- LIBTOOL = @LIBTOOL@
-@@ -154,7 +154,7 @@
- BUILT_SOURCES = parsessh.h
- 
- YFLAGS = -dtv
--LEX = @LEX@
-+LEX = @LEX@ -CFe
- # I don't really understand why I have to put srcdir here, but
- # it is needed for yacc and lex files (seems related to #line, but
- # I really don't understand why)...
---- a2ps-4.13/src/lexps.l.flex	Mon Feb  7 17:05:43 2000
-+++ a2ps-4.13/src/lexps.l	Thu Apr 27 19:00:20 2000
-@@ -35,7 +35,7 @@
- void pslex_initialize PARAMS ((void));
- %}
- 
--%option yylineno
-+/* %option yylineno */
- %option prefix="ps"
- %option outfile="lex.yy.c"
- 
---- a2ps-4.13/Makefile.in.flex	Wed Feb  9 09:32:25 2000
-+++ a2ps-4.13/Makefile.in	Thu Apr 27 19:00:20 2000
-@@ -100,7 +100,7 @@
- INTLDEPS = @INTLDEPS@
+ LIBICONV = @LIBICONV@
+diff -Naur a2ps-4.14.orig/src/Makefile.in a2ps-4.14/src/Makefile.in
+--- a2ps-4.14.orig/src/Makefile.in	2008-11-02 03:28:37.000000000 +0100
++++ a2ps-4.14/src/Makefile.in	2008-11-02 03:22:15.000000000 +0100
+@@ -174,7 +174,7 @@
+ INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
  INTLLIBS = @INTLLIBS@
- INTLOBJS = @INTLOBJS@
+ LDFLAGS = @LDFLAGS@
 -LEX = @LEX@
 +LEX = @LEX@ -CFe
+ LEXLIB = @LEXLIB@
  LEX_OUTPUT_ROOT = @LEX_OUTPUT_ROOT@
- LIBOBJS = @LIBOBJS@
- LIBTOOL = @LIBTOOL@
+ LIBICONV = @LIBICONV@

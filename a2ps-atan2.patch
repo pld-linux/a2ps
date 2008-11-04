@@ -1,24 +1,11 @@
-diff -Nur a2ps-4.13.orig/lib/Makefile.am a2ps-4.13/lib/Makefile.am
---- a2ps-4.13.orig/lib/Makefile.am	1999-10-18 20:47:00.000000000 +0000
-+++ a2ps-4.13/lib/Makefile.am	2006-11-21 11:07:54.000000000 +0000
-@@ -32,7 +32,7 @@
+--- a2ps-4.14.orig/lib/Makefile.in	2008-11-02 03:28:37.000000000 +0100
++++ a2ps-4.14/lib/Makefile.in	2008-11-04 15:46:34.000000000 +0100
+@@ -322,7 +322,7 @@
+ # Use a struct, handle duplicates, produce ANSI-C
  GPERFFLAGS = -t -D -L ANSI-C
- BUILT_SOURCES = parseppd.h liba2ps.h confg.c
- 
+ BUILT_SOURCES = parseppd.c parseppd.h liba2ps.h confg.c
 -liba2ps_la_LIBADD = @LTALLOCA@ @LTLIBOBJS@
 +liba2ps_la_LIBADD = -lm @LTALLOCA@ @LTLIBOBJS@
  liba2ps_la_LDFLAGS = -version-info @LIBVERSION@
- 
  liba2psheaders = encoding.h media.h jobs.h output.h		\
-diff -Nur a2ps-4.13.orig/lib/Makefile.in a2ps-4.13/lib/Makefile.in
---- a2ps-4.13.orig/lib/Makefile.in	2000-02-24 17:55:50.000000000 +0000
-+++ a2ps-4.13/lib/Makefile.in	2006-11-21 11:12:35.000000000 +0000
-@@ -148,7 +148,7 @@
- GPERFFLAGS = -t -D -L ANSI-C
- BUILT_SOURCES = parseppd.h liba2ps.h confg.c
- 
--liba2ps_la_LIBADD = @LTALLOCA@ @LTLIBOBJS@
-+liba2ps_la_LIBADD = -lm @LTALLOCA@ @LTLIBOBJS@
- liba2ps_la_LDFLAGS = -version-info @LIBVERSION@
- 
- liba2psheaders = encoding.h media.h jobs.h output.h		\
+ routines.h psgen.h prolog.h faces.h confg.h useropt.h		\
