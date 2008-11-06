@@ -1,4 +1,3 @@
-#
 Summary:	Text to Postscript filter
 Summary(ja.UTF-8):	テキスト→PostScript フィルタ
 Summary(pl.UTF-8):	Filtr text/plain do Postscriptu
@@ -6,9 +5,8 @@ Summary(zh_CN.UTF-8):	纯文本到Postscript转换器
 Name:		a2ps
 Version:	4.14
 Release:	2
-License:	GPL
+License:	GPL v3+
 Group:		Applications/Text
-# Source0:	ftp://ftp.enst.fr/pub/unix/a2ps/%{name}-%{version}.tar.gz
 Source0:	http://ftp.gnu.org/gnu/a2ps/%{name}-%{version}.tar.gz
 # Source0-md5:	781ac3d9b213fa3e1ed0d79f986dc8c7
 Source1:	ftp://ftp.enst.fr/pub/unix/a2ps/i18n-fonts-0.1.tar.gz
@@ -58,28 +56,28 @@ Zawiera program ,,ogonkify'' poprawiający błędnie zakodowany
 PostScript zawierający polskie znaki.
 
 %package devel
-Summary:	Header files and development documentation for a2ps
-Summary(pl.UTF-8):	Pliki nagłówkowe i dokumentacja do a2ps
+Summary:	Header files for a2ps library
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki a2ps
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
-Header files and development documentation for a2ps.
+Header files for a2ps library.
 
 %description devel -l pl.UTF-8
-Pliki nagłówkowe i dokumentacja do a2ps.
+Pliki nagłówkowe biblioteki a2ps.
 
 %package static
-Summary:	a2ps static libraries
-Summary(pl.UTF-8):	Biblioteki statyczne do a2ps
+Summary:	a2ps static library
+Summary(pl.UTF-8):	Biblioteka statyczna a2ps
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
-a2ps static libraries.
+a2ps static library.
 
 %description static -l pl.UTF-8
-Biblioteki statyczne do a2ps.
+Biblioteka statyczna a2ps.
 
 %prep
 %setup -q -a1
@@ -100,7 +98,7 @@ mv -f po/{no,nb}.po
 
 %build
 cp -f /usr/share/automake/config.* auxdir
-%configure2_13 \
+%configure \
 	--with-gnu-gettext \
 	--with-medium=_glibc  \
 	--with-encoding=latin1 \
@@ -146,8 +144,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/liba2ps.so.1
 %{_mandir}/man1/*
 %lang(pl) %{_mandir}/pl/man1/*
-%{_infodir}/a2ps*info*
-%{_infodir}/ogonkify*info*
+%{_infodir}/a2ps.info*
+%{_infodir}/ogonkify.info*
 
 %dir %{_datadir}/a2ps
 %dir %{_datadir}/a2ps/afm
@@ -169,9 +167,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/liba2ps.la
 %attr(755,root,root) %{_libdir}/liba2ps.so
-%{_includedir}/*
+%{_libdir}/liba2ps.la
+%{_includedir}/liba2ps.h
 
 %files static
 %defattr(644,root,root,755)
