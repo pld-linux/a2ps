@@ -27,7 +27,7 @@ Patch11:	%{name}-atan2.patch
 URL:		http://www.gnu.org/software/a2ps/
 BuildRequires:	automake
 BuildRequires:	flex
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gperf
 BuildRequires:	libpaper-devel
 BuildRequires:	texinfo
