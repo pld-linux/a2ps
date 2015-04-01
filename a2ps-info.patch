@@ -1,6 +1,21 @@
 diff -Nru a2ps-4.12h/doc/a2ps.texi a2ps-4.12h.new/doc/a2ps.texi
 --- a2ps-4.12h/doc/a2ps.texi	Sat Dec 18 11:13:33 1999
 +++ a2ps-4.12h.new/doc/a2ps.texi	Sat Dec 18 11:12:41 1999
+@@ -22,12 +22,12 @@
+ @c `a2ps'.  Avoid those quotes.
+ @iftex
+ @macro pack
+-@code{@value{PACKAGE}}@c
++@code{@value{PACKAGE}}
+ @end macro
+ @end iftex
+ @ifnottex
+ @macro pack
+-@value{PACKAGE}@c
++@value{PACKAGE}
+ @end macro
+ @end ifnottex
+ 
 @@ -59,16 +59,16 @@
  @TeX{}Script
  @end macro

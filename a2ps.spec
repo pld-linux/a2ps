@@ -4,7 +4,7 @@ Summary(pl.UTF-8):	Filtr text/plain do Postscriptu
 Summary(zh_CN.UTF-8):	纯文本到Postscript转换器
 Name:		a2ps
 Version:	4.14
-Release:	2
+Release:	3
 License:	GPL v3+
 Group:		Applications/Text
 Source0:	http://ftp.gnu.org/gnu/a2ps/%{name}-%{version}.tar.gz
@@ -24,6 +24,7 @@ Patch8:		%{name}-ogonkify-xfig-fix.patch
 Patch9:		%{name}-pl.po-update.patch
 Patch10:	%{name}-locale-names.patch
 Patch11:	%{name}-atan2.patch
+Patch12:	format-security.patch
 URL:		http://www.gnu.org/software/a2ps/
 BuildRequires:	automake
 BuildRequires:	flex
@@ -93,6 +94,7 @@ Biblioteka statyczna a2ps.
 %patch9 -p1
 %patch10 -p1
 %patch11 -p1
+%patch12 -p1
 
 mv -f po/{no,nb}.po
 
