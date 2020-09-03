@@ -7,7 +7,7 @@ Version:	4.14
 Release:	3
 License:	GPL v3+
 Group:		Applications/Text
-Source0:	http://ftp.gnu.org/gnu/a2ps/%{name}-%{version}.tar.gz
+Source0:	https://ftp.gnu.org/gnu/a2ps/%{name}-%{version}.tar.gz
 # Source0-md5:	781ac3d9b213fa3e1ed0d79f986dc8c7
 Source1:	ftp://ftp.enst.fr/pub/unix/a2ps/i18n-fonts-0.1.tar.gz
 # Source1-md5:	fee1456d0e6e94af4fc5b5a1bb9687b7
@@ -25,6 +25,7 @@ Patch9:		%{name}-pl.po-update.patch
 Patch10:	%{name}-locale-names.patch
 Patch11:	%{name}-atan2.patch
 Patch12:	format-security.patch
+Patch13:	%{name}-texinfo.patch
 URL:		http://www.gnu.org/software/a2ps/
 BuildRequires:	automake
 BuildRequires:	flex
@@ -95,8 +96,9 @@ Biblioteka statyczna a2ps.
 %patch10 -p1
 %patch11 -p1
 %patch12 -p1
+%patch13 -p1
 
-mv -f po/{no,nb}.po
+%{__mv} po/{no,nb}.po
 
 %build
 cp -f /usr/share/automake/config.* auxdir
@@ -122,6 +124,9 @@ install i18n-fonts-0.1/afm/*.afm $RPM_BUILD_ROOT%{_datadir}/a2ps/afm
 install i18n-fonts-0.1/fonts/*.pfb $RPM_BUILD_ROOT%{_datadir}/a2ps/fonts
 install %{SOURCE2} $RPM_BUILD_ROOT%{_mandir}/pl/man1
 
+# it doesn't belong here (part of glibc in PLD case)
+%{__rm} $RPM_BUILD_ROOT%{_infodir}/regex.info
+
 %find_lang %{name}
 
 %clean
@@ -141,11 +146,27 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_sysconfdir}
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/a2ps.cfg
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/a2ps-site.cfg
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/a2ps
+%attr(755,root,root) %{_bindir}/card
+%attr(755,root,root) %{_bindir}/composeglyphs
+%attr(755,root,root) %{_bindir}/fixnt
+%attr(755,root,root) %{_bindir}/fixps
+%attr(755,root,root) %{_bindir}/ogonkify
+%attr(755,root,root) %{_bindir}/pdiff
+%attr(755,root,root) %{_bindir}/psmandup
+%attr(755,root,root) %{_bindir}/psset
+%attr(755,root,root) %{_bindir}/texi2dvi4a2ps
 %attr(755,root,root) %{_libdir}/liba2ps.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/liba2ps.so.1
-%{_mandir}/man1/*
-%lang(pl) %{_mandir}/pl/man1/*
+%{_mandir}/man1/a2ps.1*
+%{_mandir}/man1/card.1*
+%{_mandir}/man1/fixps.1*
+%{_mandir}/man1/ogonkify.1*
+%{_mandir}/man1/pdiff.1*
+%{_mandir}/man1/psmandup.1*
+%{_mandir}/man1/psset.1*
+%{_mandir}/man1/texi2dvi4a2ps.1*
+%lang(pl) %{_mandir}/pl/man1/ogonkify.1*
 %{_infodir}/a2ps.info*
 %{_infodir}/ogonkify.info*
 
