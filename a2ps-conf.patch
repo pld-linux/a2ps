@@ -1,7 +1,7 @@
---- a2ps-4.13/configure.orig	Wed Mar  8 18:43:57 2000
-+++ a2ps-4.13/configure	Wed Jun 27 14:58:26 2001
-@@ -8447,14 +8447,9 @@
- echo "configure:8448: checking for PostScript fonts path" 1>&5
+--- a2ps-4.15.4/configure.ac.orig	2023-06-11 19:54:15.800216976 +0200
++++ a2ps-4.15.4/configure.ac	2023-06-11 19:54:18.423536097 +0200
+@@ -152,20 +152,9 @@ AM_CONDITIONAL(EXTENSIONS, test x$enable
+ AC_MSG_CHECKING(for PostScript fonts path)
  # Try to find some PostScript fonts.
  # Find out if ghostscript is installed
 -ac_psfont_path=
@@ -12,9 +12,14 @@
 -    ac_psfont_path="$ac_psfont_path:$ac_dir";
 -  fi
 -done
-+# for ac_dir in /usr/local/ghostscript/fonts \
-+#  /usr/local/share/ghostscript/fonts;
-+ac_psfont_path="/usr/share/fonts/Type1:/usr/share/fonts/Type1/afm:/usr/share/fonts/default/Type1:/usr/share/fonts/default/ghostscript:/usr/share/fonts/afms/adobe:/usr/share/fonts/ISO8859-2/Type1/afm"
- if test -n "$ac_psfont_path"; then
-   PSFONT_PATH=`echo "$ac_psfont_path" | sed -e 's/^://'`
- fi
+-dnl # Remove the leading `:'
+-if test -n "$ac_psfont_path"; then
+-  PSFONT_PATH=`echo "$ac_psfont_path" | sed -e 's/^://'`
+-fi
++PSFONT_PATH="/usr/share/fonts/Type1:/usr/share/fonts/Type1/afm:/usr/share/fonts/default/Type1:/usr/share/fonts/default/ghostscript:/usr/share/fonts/afms/adobe:/usr/share/fonts/ISO8859-2/Type1/afm"
+ AC_SUBST(PSFONT_PATH)
+-AC_MSG_RESULT([$ac_psfont_path])
++AC_MSG_RESULT([$PSFONT_PATH])
+ 
+ ## ---------------------------------------------------------- ##
+ ## Write a first sketch of a2ps.cfg.  The user should check.  ##

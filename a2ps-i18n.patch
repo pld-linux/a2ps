@@ -1,27 +1,25 @@
-diff -urN a2ps-4.13.orig/lib/jobs.c a2ps-4.13/lib/jobs.c
---- a2ps-4.13.orig/lib/jobs.c	Sat Jun 23 16:00:37 2001
-+++ a2ps-4.13/lib/jobs.c	Sat Jun 23 16:45:39 2001
-@@ -139,6 +139,10 @@
- #endif
+--- a2ps-4.15.4/liba2ps/jobs.c.orig	2023-06-11 20:24:17.030458874 +0200
++++ a2ps-4.15.4/liba2ps/jobs.c	2023-06-11 20:25:12.540158152 +0200
+@@ -120,6 +120,10 @@ a2ps_job_new (void)
+   setlocale (LC_MESSAGES, "");
    setlocale (LC_CTYPE, "");
    setlocale (LC_PAPER, "");
 +  /* Make sure dot will be used to separate fractional part of numbers.
-+   * In some other locales (polish, for example) comma is used, but this
++   * In some other locales (Polish, for example) comma is used, but this
 +   * is violation of PostScript. */
 +  setlocale(LC_NUMERIC, "C");	
  
    bindtextdomain (PACKAGE, LOCALEDIR);
-   textdomain (PACKAGE);
-diff -urN a2ps-4.13.orig/lib/output.c a2ps-4.13/lib/output.c
---- a2ps-4.13.orig/lib/output.c	Tue Aug 31 19:42:41 1999
-+++ a2ps-4.13/lib/output.c	Sat Jun 23 16:45:11 2001
+   bindtextdomain (PACKAGE "-gnulib", LOCALEDIR);
+--- a2ps-4.15.4.orig/liba2ps/output.c	Tue Aug 31 19:42:41 1999
++++ a2ps-4.15.4/liba2ps/output.c	Sat Jun 23 16:45:11 2001
 @@ -619,9 +619,17 @@
  {
    /* Open the destination */
    a2ps_open_output_stream (job);
 +  
 +  /* Make sure dot will be used to separate fractional part of numbers.
-+   * In some other locales (polish, for example) comma is used, but this
++   * In some other locales (Polish, for example) comma is used, but this
 +   * is violation of PostScript. */
 +  setlocale(LC_NUMERIC, "C");	
  

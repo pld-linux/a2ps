@@ -1,24 +1,8 @@
-diff -Nru a2ps-4.12h/doc/a2ps.texi a2ps-4.12h.new/doc/a2ps.texi
---- a2ps-4.12h/doc/a2ps.texi	Sat Dec 18 11:13:33 1999
-+++ a2ps-4.12h.new/doc/a2ps.texi	Sat Dec 18 11:12:41 1999
-@@ -22,12 +22,12 @@
- @c `a2ps'.  Avoid those quotes.
- @iftex
- @macro pack
--@code{@value{PACKAGE}}@c
-+@code{@value{PACKAGE}}
- @end macro
- @end iftex
- @ifnottex
- @macro pack
--@value{PACKAGE}@c
-+@value{PACKAGE}
+--- a2ps-4.15.4/doc/a2ps.texi.orig	2023-06-11 19:15:01.649637170 +0200
++++ a2ps-4.15.4/doc/a2ps.texi	2023-06-11 19:31:07.204406311 +0200
+@@ -44,14 +44,14 @@
  @end macro
  @end ifnottex
- 
-@@ -59,16 +59,16 @@
- @TeX{}Script
- @end macro
  
 -@dircategory Printing Tools
 +@dircategory Printing Tools:
@@ -27,27 +11,22 @@ diff -Nru a2ps-4.12h/doc/a2ps.texi a2ps-4.12h.new/doc/a2ps.texi
 -* PreScript: (a2ps) PreScript.     Input language for a2ps
 -* card: (a2ps) card.               Print Reference Cards
 -* fixps: (a2ps) fixps.             Fixing Some Ill Designed PostScript Files
--* fixnt: (a2ps) fixnt.             Fixing Microsoft NT PostScript Files
 -* pdiff: (a2ps) pdiff.             Produce Pretty Comparison of Files
--* psmandup: (a2ps) psmandup.       Printing Duplex on Simplex Printers
--* psset: (a2ps) psset.             Inserting calls to setpagedevice
+-* lp2: (a2ps) lp2.                 Printing Duplex on Simplex Printers
 +* a2ps: (a2ps).				PostScript Generating Utility
++* PreScript: (a2ps)PreScript.		Input language for a2ps
 +* card: (a2ps)card.			Print Reference Cards
 +* fixps: (a2ps)fixps.			Fixing Some Ill Designed PostScript Files
-+* fixnt: (a2ps)fixnt.			Fixing Microsoft NT PostScript Files
 +* pdiff: (a2ps)pdiff.			Produce Pretty Comparison of Files
-+* psmandup: (a2ps)psmandup.		Printing Duplex on Simplex Printers
-+* PreScript: (a2ps)PreScript.		Input language for a2ps
-+* psset: (a2ps)psset.			Inserting calls to setpagedevice
++* lp2: (a2ps)lp2.			Printing Duplex on Simplex Printers
  @end direntry
  
  @ifinfo
-diff -Nru a2ps-4.12h/ogonkify/doc/ogonkify.texi a2ps-4.12h.new/ogonkify/doc/ogonkify.texi
---- a2ps-4.12h/ogonkify/doc/ogonkify.texi	Sat Dec 18 11:13:33 1999
-+++ a2ps-4.12h.new/ogonkify/doc/ogonkify.texi	Sat Dec 18 11:14:20 1999
+--- a2ps-4.15.4/ogonkify/doc/ogonkify.texi.orig	2023-06-11 19:32:06.390752338 +0200
++++ a2ps-4.15.4/ogonkify/doc/ogonkify.texi	2023-06-11 19:33:05.387099394 +0200
 @@ -7,9 +7,9 @@
  
- @c Time-stamp: <99/05/14 04:30:20 jec>
+ @c Time-stamp: <2022-08-05 12:22:24 rrt>
  
 -@dircategory Printing Tools
 +@dircategory Printing Tools:

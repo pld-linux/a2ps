@@ -1,9 +1,0 @@
---- a2ps-4.14/doc/a2ps.texi.orig	2020-09-03 06:28:29.283053809 +0200
-+++ a2ps-4.14/doc/a2ps.texi	2020-09-03 06:43:07.508296055 +0200
-@@ -1,5 +1,6 @@
- \input texinfo @c -*- texinfo -*-
- @c %**start of header
-+@documentencoding UTF-8
- @setfilename a2ps.info
- @settitle General Purpose PostScript Generating Utility
- @c @setchapternewpage odd
