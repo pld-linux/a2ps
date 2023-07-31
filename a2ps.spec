@@ -4,7 +4,7 @@ Summary(pl.UTF-8):	Filtr text/plain do Postscriptu
 Summary(zh_CN.UTF-8):	纯文本到Postscript转换器
 Name:		a2ps
 Version:	4.15.5
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		Applications/Text
 Source0:	https://ftp.gnu.org/gnu/a2ps/%{name}-%{version}.tar.gz
@@ -33,7 +33,7 @@ BuildRequires:	libtool >= 2:2
 BuildRequires:	pkgconfig
 BuildRequires:	texinfo
 Requires(post,postun):	/sbin/ldconfig
-Requires:	psutils >= 1.17
+Requires:	psutils
 Suggests:	ImageMagick
 Suggests:	ghostscript
 # grog
