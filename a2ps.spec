@@ -3,13 +3,14 @@ Summary(ja.UTF-8):	テキスト→PostScript フィルタ
 Summary(pl.UTF-8):	Filtr text/plain do Postscriptu
 Summary(zh_CN.UTF-8):	纯文本到Postscript转换器
 Name:		a2ps
-Version:	4.15.6
+Version:	4.15.7
 Release:	1
 License:	GPL v3+
 Group:		Applications/Text
 Source0:	https://ftp.gnu.org/gnu/a2ps/%{name}-%{version}.tar.gz
-# Source0-md5:	95c3ad5f7c0c87b71109b34c875cf7c0
-Source1:	ftp://ftp.enst.fr/pub/unix/a2ps/i18n-fonts-0.1.tar.gz
+# Source0-md5:	c0b2187a56f9d60931227dc4678cbaea
+# originally from ftp://ftp.enst.fr/pub/unix/a2ps/
+Source1:	i18n-fonts-0.1.tar.gz
 # Source1-md5:	fee1456d0e6e94af4fc5b5a1bb9687b7
 Source2:	ogonkify.1.pl
 Patch0:		%{name}-info.patch
