@@ -80,13 +80,13 @@ Tryb a2ps oraz obsługa drukowania przez a2ps dla Emacsa.
 
 %prep
 %setup -q -a1
-%patch0 -p1
-%patch2 -p1
-%patch4 -p1
-%patch5 -p1
-%patch6 -p1
-%patch7 -p1
-%patch8 -p0
+%patch -P0 -p1
+%patch -P2 -p1
+%patch -P4 -p1
+%patch -P5 -p1
+%patch -P6 -p1
+%patch -P7 -p1
+%patch -P8 -p0
 
 %{__sed} -i -e '1s,/usr/bin/env sh,/bin/sh,' contrib/{card,fixps,lp2,pdiff}.in
 
