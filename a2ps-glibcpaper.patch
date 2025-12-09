@@ -8,12 +8,12 @@
  
    bindtextdomain (PACKAGE, LOCALEDIR);
    bindtextdomain (PACKAGE "-gnulib", LOCALEDIR);
---- a2ps-4.15.4/liba2ps/options.c.orig	2023-04-12 20:50:51.000000000 +0200
-+++ a2ps-4.15.4/liba2ps/options.c	2023-06-11 20:00:19.368247359 +0200
-@@ -23,6 +23,8 @@
- /*                                                                      */
- /************************************************************************/
+--- a2ps-4.15.8/liba2ps/options.c.orig	2025-12-04 16:59:23.000000000 +0100
++++ a2ps-4.15.8/liba2ps/options.c	2025-12-09 19:04:53.493895185 +0100
+@@ -24,6 +24,8 @@
  #include <config.h>
+ 
+ #include <getopt.h>
 +#include <locale.h>
 +#include <langinfo.h>
  

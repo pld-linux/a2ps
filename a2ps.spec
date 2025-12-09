@@ -3,12 +3,12 @@ Summary(ja.UTF-8):	テキスト→PostScript フィルタ
 Summary(pl.UTF-8):	Filtr text/plain do Postscriptu
 Summary(zh_CN.UTF-8):	纯文本到Postscript转换器
 Name:		a2ps
-Version:	4.15.7
+Version:	4.15.8
 Release:	1
 License:	GPL v3+
 Group:		Applications/Text
 Source0:	https://ftp.gnu.org/gnu/a2ps/%{name}-%{version}.tar.gz
-# Source0-md5:	c0b2187a56f9d60931227dc4678cbaea
+# Source0-md5:	c782f393c815f0359aa380a05d2b29cb
 # originally from ftp://ftp.enst.fr/pub/unix/a2ps/
 Source1:	i18n-fonts-0.1.tar.gz
 # Source1-md5:	fee1456d0e6e94af4fc5b5a1bb9687b7
@@ -26,7 +26,7 @@ BuildRequires:	automake >= 1:1.15
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gc-devel >= 7.2
-BuildRequires:	gettext-tools >= 0.20.2
+BuildRequires:	gettext-tools >= 0.22
 BuildRequires:	gperf
 BuildRequires:	help2man
 BuildRequires:	libpaper-devel
