@@ -1,0 +1,14 @@
+%D{} with exactly 512 format chars writes the NUL one past buf2 (stack overflow)
+https://src.fedoraproject.org/rpms/a2ps/blob/rawhide/f/a2ps-overrun-static.patch
+
+--- a2ps-4.15.8.orig/liba2ps/metaseq.c	2025-12-04 16:28:37.000000000 +0100
++++ a2ps-4.15.8/liba2ps/metaseq.c	2026-10-29 02:12:10.526841638 +0100
+@@ -309,7 +309,7 @@
+ 	      {
+ 		/* `%D{}' format run date with strftime() */
+ 		for (j = 0, i += 2;
+-		     j < sizeof (buf2) && str[i] && str[i] != '}';
++		     j < sizeof (buf2) - 1 && str[i] && str[i] != '}';
+ 		     i++, j++)
+ 		  buf2[j] = str[i];
+ 		if (str[i] != '}')

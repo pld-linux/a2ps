@@ -4,7 +4,7 @@ Summary(pl.UTF-8):	Filtr text/plain do Postscriptu
 Summary(zh_CN.UTF-8):	纯文本到Postscript转换器
 Name:		a2ps
 Version:	4.15.8
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		Applications/Text
 Source0:	https://ftp.gnu.org/gnu/a2ps/%{name}-%{version}.tar.gz
@@ -20,6 +20,7 @@ Patch5:		%{name}-glibcpaper.patch
 Patch6:		%{name}-autoenc.patch
 Patch7:		%{name}-i18n.patch
 Patch8:		%{name}-ogonkify-xfig-fix.patch
+Patch9:		%{name}-date-format-overrun.patch
 URL:		http://www.gnu.org/software/a2ps/
 BuildRequires:	autoconf >= 2.71
 BuildRequires:	automake >= 1:1.15
@@ -88,6 +89,7 @@ Tryb a2ps oraz obsługa drukowania przez a2ps dla Emacsa.
 %patch -P6 -p1
 %patch -P7 -p1
 %patch -P8 -p0
+%patch -P9 -p1
 
 %{__sed} -i -e '1s,/usr/bin/env sh,/bin/sh,' contrib/{card,fixps,lp2,pdiff}.in
 
@@ -109,7 +111,8 @@ install -d $RPM_BUILD_ROOT%{_datadir}/a2ps/{afm,fonts} \
 	$RPM_BUILD_ROOT%{_mandir}/pl/man1
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	AM_UPDATE_INFO_DIR=no
 
 install i18n-fonts-0.1/afm/*.afm $RPM_BUILD_ROOT%{_datadir}/a2ps/afm
 install i18n-fonts-0.1/fonts/*.pfb $RPM_BUILD_ROOT%{_datadir}/a2ps/fonts
@@ -156,6 +159,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_infodir}/ogonkify.info*
 
 %dir %{_datadir}/a2ps
+%{_datadir}/a2ps/README
 %dir %{_datadir}/a2ps/afm
 %{_datadir}/a2ps/afm/*.afm
 %{_datadir}/a2ps/afm/*.map
@@ -168,6 +172,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/a2ps/sheets
 
 %dir %{_datadir}/ogonkify
+%{_datadir}/ogonkify/README
 %{_datadir}/ogonkify/*.enc
 %{_datadir}/ogonkify/*.ps
 %{_datadir}/ogonkify/afm
